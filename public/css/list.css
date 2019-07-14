@@ -1,0 +1,100 @@
+.pro-all{
+  margin-top:20px;
+}
+/* 产品1 */
+.pro-item{
+  margin-right: 10px;
+}
+.pro-all .pro-item:nth-child(4n){
+  margin-right:0;
+}
+.pro-item{
+  display: inline-block;
+}
+.pro-item,.bg-black,.bg{
+  position:relative;
+  width: 288px;
+  height: 288px;
+}
+
+.bg .sweet,.bg i{
+  position:absolute;
+  top:15px;
+  left:0;
+  transition: all 0.6s linear;
+  font-size:16px;
+}
+.pro-item{
+  overflow: hidden;
+  margin-top:10px;
+}
+.pro-item:hover{
+  box-shadow:1px 1px 15px #9b9899;
+}
+.bg i{
+  left:30px;
+  top:40px;
+  color:#fa9dac;
+}
+.bg-black{
+  position:absolute;
+}
+.bg:hover > .bg-black{
+  background-color: rgba(0,0,0,0.2);
+  
+}
+.bg:hover > .sweet{
+left:20px;
+font-size:20px;
+color:#fa9dac;
+}
+.bg:hover > i{
+  left:120px;
+  top:60px;
+  color:black;
+  font-size:20px;
+  }
+  .bg b{
+    display: inline-block;
+    /* height:1px; */
+    width:220px;
+    position:absolute;
+    top:46px;
+    right:-100px;
+    border:0.5px solid rgb(8, 8, 8);
+    transition:all 0.8s linear;
+    opacity: 0;
+  }
+  .bg:hover b{
+    right:0px;
+    opacity: 1;
+  }
+  .bg img{
+    top:50px;
+    position:absolute;
+    transition:all 0.5s linear;
+  }
+  .bg:hover img{
+    transform:scale(1.2)
+  } 
+  /* 隐藏部分设置1 */
+  .bg .index-five-tab-tc {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height:130px;
+    left: 0;
+    bottom:-135px;
+    background: rgba(255, 255, 255, 0.8);
+    display: block;
+    opacity: 1;
+    transition: all .4s linear;
+}
+.bg:hover .index-five-tab-tc{
+  bottom: 0;
+}
+.index-five-tab-tc1>span{
+  font-size:22px;
+}
+/* 隐藏部分设置1 */
+/* 产品2 */

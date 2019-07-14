@@ -1,0 +1,302 @@
+/* 个人中心开始1 */
+.personal{
+  background-color: #f7f7f7;
+  padding:30px
+}
+.personal .bar{
+  margin-bottom: 20px;
+  /* background-color: #fff; */
+}
+.personal-left,.personal-right{
+  padding:40px;
+  /* height:600px; */
+  height:100%;
+  box-sizing:border-box;
+  background-color: #fff;
+}
+.personal-left{
+  width:220px;
+  float: left;
+  padding-bottom: 100px;
+  }
+.personal-right{
+  width: 950px;
+  float:right;
+}
+.personal-left>p{
+  font-size:16px;
+  color:#fa9dac;
+  font-weight: 600;
+  margin:25px 0;
+}
+.personal-action{
+  color:#fa9dac;
+}
+.personal-left ul li{
+  margin-bottom: 15px;
+  font-size:14px;
+  cursor: pointer;
+  transition:all .2s linear;
+}
+.personal-left ul li:hover{
+color:#fa9dac;
+}
+.icon-yonghutouxiang{
+  font-size:140px;
+  color:#ccc;
+}
+.img-self{
+  width:150px;
+  height:150px;
+  overflow: hidden;
+  border:1px solid #ccc;
+  border-radius: 50%;
+}
+.img-self img{
+  width:100%;
+  
+}
+.personal-top,.personal-bottom{
+  margin:20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+.personal-top{
+  padding-bottom:20px;
+  border-bottom: 1px solid #ccc;
+}
+.personal-top>ul,.img-self{
+  display: inline-block;
+}
+.personal-top>ul{
+  margin-right:70px;
+  font-size: 14px;
+}
+.personal-top>ul>li{
+  margin:10px 0;
+}
+.personal-top>ul>li>span{
+  cursor: pointer;
+  color:#fa9dac;
+}
+.personal-name{
+  font-size:30px;
+  color:#fa9dac;
+}
+.personal-bottom{
+  flex-wrap: wrap;
+}
+.bottom-item{
+  width: 395px;
+  height: 87px;
+  display:flex;
+  align-items:center;
+  margin:25px 0;
+  justify-content:center;
+
+}
+.bottom-item>i{
+font-size:80px;
+color:#fa9dac;
+display:inline-block;
+cursor: pointer;
+}
+.bottom-item>ul{
+  display:inline-block;
+  margin-left:20px;
+  font-size:14px;
+  cursor: pointer;
+}
+.bottom-item>ul>li{
+  padding:5px;
+  width:160px;
+}
+.bottom-item>ul span{
+color:#fa9dac;
+}
+/* 个人中心开始2 */
+
+/* 我的订单模块1 */
+.myorder ul.myorder-top li{
+float: left;
+margin-right:30px;
+padding:10px;
+cursor: pointer;
+}
+.myorder ul.myorder-top{
+  margin-bottom: 20px;
+}
+.myorder-top .top-one{
+  border-left:2px solid #fa9dac;
+  font-weight: 600;
+}
+.myorder-top .top-active{
+  border-bottom:2px solid #fa9dac;
+  color:#fa9dac;
+}
+.myorder ul.myorder-title{
+  margin-top: 30px;
+  width: 100%;
+  /* background-color: #f5f5f5; */
+  padding:10px 0;
+}
+.myorder ul.myorder-title li{
+  float: left;
+  font-size:14px;
+  text-align: center;
+}
+.myorder-title li:nth-child(1),.myorder-title li:nth-child(3){
+  width:35%;
+}
+.myorder-title li:nth-child(2),.myorder-title li:nth-child(4),.myorder-title li:nth-child(5){
+  width:10%;
+}
+/* 我的订单模块2 */
+/* 具体订单信息1 */
+.myorder-item-list{
+  border:1px solid #ccc;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+.myorder-item-list .myorder-item-title li{
+  float: left;
+  font-size:12px;
+  text-align: center;
+  margin-right: 50px;
+  padding:10px 25px;
+}
+.myorder-item-list .myorder-title li{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+.myorder-item-list .myorder-title li:nth-child(1)>img{
+  width:20%;
+  height:auto;
+}
+.myorder-item-list .myorder-title li:nth-child(1)>span{
+  width:50%;
+  font-size:12px;
+}
+.myorder-item-list .myorder-title li:nth-child(1)>i{
+  width:20%;
+}
+.myorder-item-list ul.flex-item {
+  display:flex;
+  justify-content: center;
+  align-items:center;
+
+}
+.myorder-item-list ul.myorder-title {
+  margin: 20px 0;
+}
+.myorder .myorder-item-list ul.myorder-title li {
+  font-size: 12px;
+}
+/* 具体订单信息1 */
+/* 个人信息模块1 */
+.myorder-myself{
+  margin:40px 0;
+}
+.myorder-myself li{
+font-size:14px;
+margin:22px 0;
+}
+.myorder-myself li{
+  font-size:14px;
+  }
+  .myorder-myself li input{
+    border:1px solid #ccc;
+    padding:5px 10px;
+    /* border-radius: 5px; */
+    color:gray;
+  }
+  .up-submit{
+    padding:20px 0 0  77px;
+  }
+  .myorder-myself li.up-submit input{
+    padding:5px 30px;
+    color:black;
+    cursor: pointer;
+    transition:all .3s linear;
+  }
+  .myorder-myself li.up-submit input:hover{
+    background-color: #fa9dac;
+    color:white;
+    border:1px solid #fa9dac;
+  }
+  .myorder-myself li img{
+    width: 80px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-left:35px;
+    cursor: pointer;
+  }
+  
+
+.myorder-myself li span{
+    font-size: 14px;
+    display:inline-block;
+    width:100px;
+}
+/* 收货地址1 */
+.address-item{
+  border:1px solid #ccc;
+  border-radius: 5px;
+  padding:20px;
+  margin:20px 0;
+}
+.address-all .address-active{
+border:1px solid #fa9dac;
+color:#fa9dac;
+}
+.address-item ul li {
+margin:10px 0;
+font-size:14px;
+float: left;
+width:100%;
+}
+
+.address-item ul li input{
+border:1px solid #ccc;
+padding:5px 10px;
+box-sizing: border-box;
+height: 35px;
+}
+.address-item ul li:nth-child(4) input,.address-item ul li:nth-child(5) input{
+  width:700px;
+}
+.address-item ul li:last-child span{
+  float: right;
+}
+.address-item .address-add span{
+  display:inline-block;
+font-size: 14px;
+width:160px;
+}
+.address-item ul li .layui-form-label {
+  /* float: left; */
+  display: inline-block;
+  font-weight: 400;
+  line-height: 38px;
+  text-align: left;
+  padding: 0;
+  width: 75px;
+}
+.layui-form-item {
+  margin-bottom: 0px;
+  clear: both;
+  *zoom: 1;
+}
+.layui-form-select .layui-input {
+  padding-right: 10px;
+  cursor: pointer;
+  font-size:14px;
+}
+/* 收货地址2 */
+/* 右侧快捷导航需要调整1 */
+.nav-ritem p {
+  margin-top: 0px;
+}
+/* 右侧快捷导航需要调整2 */
