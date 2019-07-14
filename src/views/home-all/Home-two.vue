@@ -10,7 +10,7 @@
 					</router-link>
 					<div class="index-five-tab-name">
 						<span>{{item.index_title}}</span>
-					</div>
+					</div>  
 					<div class="index-five-tab-price">
 						<span>￥</span>
 						<span>{{item.index_price}}</span>
