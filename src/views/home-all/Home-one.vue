@@ -7,7 +7,7 @@
 				<div class="index-five-list-r">
 					<!-- 第一个内容块1 -->
 					<div v-for="(item, i) in products" :key="item.id" class="index-five-tab wow flipInY animated" :data-wow-delay="`${0.2 + i/10}s`">
-						<a target="__blank" :href="`/#/detail?product_id=${pics[i].prcid}`">
+						<a :target="createTarget(i)" :href="`/#/detail?product_id=${pics[i].prcid}`">
 							<img :src="pics[i] && pics[i].img" class="w-100  img-b">
 						</a>
 						<div class="index-five-tab-name">
@@ -28,12 +28,12 @@
 						<div class="index-five-tab-tc">
 							<div class="index-five-tab-tc1">
 								<span>￥</span>
-								<span>{{item.index_price}}</span>
+								<span>{{(item.index_price * (item.psize || 1)).toFixed(2)}}</span>
 							</div>
 							<div class="index-five-tab-tc2 text-center">
-								<div class="clearfix" v-for="(item, i) in sizes" :key="item">
+								<div class="clearfix" v-for="(item2, i) in sizes" :key="item2">
 									<img v-once v-show="i === 0" src="images/index/seven_7.png" alt="">
-									<a @click="changePrice" href="javascript:;">{{item}}磅</a>
+									<a @click="changePrice(item, i, $event)" href="javascript:;">{{item2}}磅</a>
 								</div>
 							</div>
 							<div class="index-five-tab-tc3">
@@ -61,7 +61,8 @@ export default {
     return{
       products:[],
       pics:[],
-	  sizes: ['1.2', '2.2', '3.2', '7.2']
+	  sizes: ['1.2', '2.2', '3.2', '7.2'],
+	  psizes: [1, 1.5, 2, 2.5]
     }
 	},
 	methods:{
@@ -71,9 +72,13 @@ export default {
 		tabTc4Click(event) {
 			$(event.target).parent().hide()
 		},
-		changePrice(event) {
+		changePrice(item, i, event) {
 			$(event.target).siblings('img').show()
 			$(event.target).parent().siblings('div').children("img").hide()
+			this.$set(item, 'psize', this.psizes[i])
+		},
+		createTarget() {
+			return Math.random()
 		},
     getData() {
       this.axios.get(

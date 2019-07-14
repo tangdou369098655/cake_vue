@@ -7,6 +7,12 @@ import List from './views/List.vue'
 import Cart from './views/Cart.vue'
 import Order from './views/Order.vue'
 import Portal from './views/Portal.vue'
+import PortalRouter from './views/PortalRouter.vue'
+import proMyadd from './views/protal-all/Pro-myadd'
+import proMydetails from './views/protal-all/Pro-mydetails'
+import proMyOrder from './views/protal-all/Pro-myorder'
+import proPersonal from './views/protal-all/Pro-personal'
+import proPwd from './views/protal-all/Pro-pwd'
 
 Vue.use(Router)
 
@@ -42,7 +48,30 @@ export default new Router({
         },
         {
           path:'portal',
-          component:Portal
+          component:PortalRouter,
+          children: [
+            { 
+              path: '', 
+              component: proPersonal 
+            },
+            {
+              path: 'my-add',
+              component: proMyadd
+            },
+            {
+              path: 'my-details',
+              component: proMydetails
+            },
+            {
+              path:'my-order',
+              component:proMyOrder
+            },
+            {
+              path:'my-pwd',
+              component:proPwd
+            },
+            
+          ]
         },
       ]
     },
