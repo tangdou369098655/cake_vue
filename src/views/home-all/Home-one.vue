@@ -62,7 +62,7 @@ export default {
       products:[],
       pics:[],
 	  sizes: ['1.2', '2.2', '3.2', '7.2'],
-	  psizes: [1, 1.5, 2, 2.5]
+	  psizes: [1, 1.5, 2, 3.5]
     }
 	},
 	methods:{

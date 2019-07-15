@@ -89,6 +89,10 @@ header div.main {
   border:1px solid rgb(109, 107, 107);
   border-radius:5px;
   font-size:14px;
+  cursor: pointer;
+}
+.bar span:hover{
+  color:#fa9dac;
 }
 .bar>span~span{
 margin-left:10px;

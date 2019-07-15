@@ -69,19 +69,25 @@ import axios from 'axios'
 export default {
   name:"List",
   props:{
-    search:{default:"蛋糕"},
+    
   },
   data (){
     return{
       products:[],
       pics:[],
       sizes: ['1.2', '2.2', '3.2', '7.2'],
+      psizes:[1,1.5,2,3.5],
+      search:"",
     }
   },
   methods:{
        getData() {
-      axios.get(
-        `http://localhost:3000/find`,{params:{search_product:this.search}}
+        //  var {search1}=this.$route.query;
+         this.search=this.$route.query.search;
+         if(!this.search) return;
+         console.log(this.search);
+      this.axios(
+        `http://localhost:3000/find?search_product=${this.search}`
       ).then(
         ({data})=>{
           this.products=data.list
