@@ -73,6 +73,10 @@ export default new Router({
             
           ]
         },
+        // {
+        //   path:'about',
+        //   component:About
+        // },
       ]
     },
     {

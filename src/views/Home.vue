@@ -17,22 +17,9 @@
 							</div>
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
-						<div class="index-left-item-right">
-							<ul>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-							</ul>
-						</div>
+						<home-hidden
+						search="极致"
+						></home-hidden>
 						<!-- 隐藏部分鼠标滑过出现结束 -->
 					</div>
 					<!-- 侧边栏小标题部分结束 -->
@@ -46,22 +33,9 @@
 							</div>
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
-						<div class="index-left-item-right">
-							<ul>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-							</ul>
-						</div>
+							<home-hidden
+						search="匠心"
+						></home-hidden>
 						<!-- 隐藏部分鼠标滑过出现结束 -->
 					</div>
 					<!-- 侧边栏小标题部分结束 -->
@@ -75,22 +49,9 @@
 							</div>
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
-						<div class="index-left-item-right">
-							<ul>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-							</ul>
-						</div>
+							<home-hidden
+						search="优雅"
+						></home-hidden>
 						<!-- 隐藏部分鼠标滑过出现结束 -->
 					</div>
 					<!-- 侧边栏小标题部分结束 -->
@@ -104,22 +65,9 @@
 							</div>
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
-						<div class="index-left-item-right">
-							<ul>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-							</ul>
-						</div>
+							<home-hidden
+						search="牛奶"
+						></home-hidden>
 						<!-- 隐藏部分鼠标滑过出现结束 -->
 					</div>
 					<!-- 侧边栏小标题部分结束 -->
@@ -133,22 +81,9 @@
 							</div>
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
-						<div class="index-left-item-right">
-							<ul>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-							</ul>
-						</div>
+							<home-hidden
+						search="新疆"
+						></home-hidden>
 						<!-- 隐藏部分鼠标滑过出现结束 -->
 					</div>
 					<!-- 侧边栏小标题部分结束 -->
@@ -171,22 +106,9 @@
 							</div>
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
-						<div class="index-left-item-right">
-							<ul>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-							</ul>
-						</div>
+							<home-hidden
+						search="莓"
+						></home-hidden>
 						<!-- 隐藏部分鼠标滑过出现结束 -->
 					</div>
 					<!-- 侧边栏小标题部分结束 -->
@@ -200,22 +122,9 @@
 							</div>
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
-						<div class="index-left-item-right">
-							<ul>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-								<li>
-									<img src="images/index/极地牛乳.png" alt="">
-									<span>一见倾心</span>
-								</li>
-								<li>
-									<img src="images/index/一见倾心.png" alt="">
-									<span>一见倾心</span>
-								</li>
-							</ul>
-						</div>
+							<home-hidden
+						search="士"
+						></home-hidden>
 						<!-- 隐藏部分鼠标滑过出现结束 -->
 					</div>
 					<!-- 侧边栏小标题部分结束 -->
@@ -392,8 +301,8 @@ import homeStitle from './home-all/Home-stitle'
  //引入子组件小banner模块
 import homeSbanner from './home-all/Home-sbanner' 
 //引入cart的子组件使用
-// import cartHot from './cart-all/Cart-hot'
 import hot from './cart-all/hot'
+import homeHidden from './home-all/Home-hidden'
 
 
 export default {
@@ -433,6 +342,7 @@ export default {
 "home-stitle":homeStitle,
 "home-sbanner":homeSbanner,
 "hot":hot,
+"home-hidden":homeHidden
 
 	},
   created() {

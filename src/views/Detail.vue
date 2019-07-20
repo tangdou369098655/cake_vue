@@ -23,22 +23,22 @@
       <div class="p-main-right">
         <h1 id="cake_name">星光游乐园<img src="images/index/icon-new-1.png" alt=""></h1>
         <h4 id="advertisement">生日蛋糕,巧克力,芝士,乳酪蛋糕,慕斯,鲜奶,商务,婚庆,提供健康、高品质蛋糕、时尚经典蛋糕,在线预订,新鲜配送到家。</h4>
-        <h2 id="price">￥218.00</h2>
+        <h2 id="price">￥{{price1}}</h2>
         <span class="f-gray">甜度:<img src="images/index/tian2.png" alt=""></span>
         <div class="cweight" id="specss">
-          <!-- <div>1.0磅
-            <i class="iconfont icon-right-1"></i>
+          <div v-for="(item , i) in sizes" :key="item" @click="changePrice(i)">{{item}}磅
+            <i class="iconfont icon-right-1" v-show="i===0" v-once></i>
           </div>
-          <div>2.0磅</div>
+          <!-- <div>2.0磅</div>
           <div>3.0磅</div>
           <div>4.0磅</div> -->
         </div>
         <hr>
         <div class="details clearfix">
-          <div><img src="images/index/message-one-round.png" alt="">直径13cm</div>
-          <div><img src="images/index/message-two.png" alt="">适合4-5人分享</div>
-          <div><img src="images/index/message-three.png" alt="">含五人份餐具</div>
-          <div><img src="images/index/message-four.png" alt="">至少需提前一天预约</div>
+          <div><img src="images/index/message-one-round.png" alt="">&emsp;直径6~14寸</div>
+          <div><img src="images/index/message-two.png" alt="">&emsp;适合多人分享</div>
+          <div><img src="images/index/message-three.png" alt="">&emsp;含多人份餐具</div>
+          <div><img src="images/index/message-four.png" alt="">&emsp;至少需提前一天预约</div>
         </div>
         <hr>
         <div class="count">
@@ -178,17 +178,30 @@
 export default {
   data(){
     return{
-      kinds:{default:"蛋糕"}
-    }
-  },
+      kinds:{default:"蛋糕"},
+      price1:"",
+	  sizes: ['1.2', '2.2', '3.2', '7.2'],
+      psizes: [1,1.5,2,3.5],
+      cprice:{type:Function}
+  }},
   methods:{
-    createTarget(){
-      return Math.random()
-    }
+    changePrice(item, i, event) {
+      console.log(event.target);
+			$(event.target).siblings('img').show()
+			$(event.target).parent().siblings('div').children("img").hide()
+			this.$set(item, 'psize', this.psizes[i])
+		},
+   
   },
   components:{},
   created(){},
   mounted(){
+     //点击修改价格
+              this.cprice=function(i){
+                console.log(i);
+                console.log($event.target);
+                 this.price1=this.price1*this.psizes[i]
+              }
     function ajax({url,type,data,dataType}){
   return new Promise(function(open,err){
 		//1. 创建xhr对象
@@ -234,7 +247,7 @@ export default {
       })
     })();
     */
-
+ 
       $(() => {
         //获得地址栏中的？product_id=2中的2
           var { product_id } = this.$route.query
@@ -259,15 +272,17 @@ export default {
                 price,
                 spec
               } = product;
+                this.price1=price;
               $("#cake_name").html(cake_name); //商品名称
               $("#nav_name").html(cake_name); //面包屑导航商品名称
               $("#advertisement").html(advertisement); //商品简介
-              $("#price").html(`￥${price}`); //商品价格
+              // $("#price").html(`￥${price}`); //商品价格
               $("#kinds").html(kind_name);
               this.kinds=kind_name;
               console.log(spec)
               spec=spec.split("/");
-              console.log(spec)
+              console.log(spec);
+             
               //设置商品尺寸
               var html="";
               // for(var sp of spec){
@@ -275,13 +290,14 @@ export default {
               //   <i class=""></i>
               // </div>`
               // }
-              spec.forEach(function(value,i){
-                　　console.log('forEach遍历:'+i+'--'+value);
-                html+=`<div>${value}
-                <i class="${i==0?'iconfont icon-right-1':''}"></i></div>`
-                })
-              $("#specss").html(html);
-              console.log(html)
+              // spec.forEach(function(value,i){
+              //   　　console.log('forEach遍历:'+i+'--'+value);
+              //   html+=`<div onclick="change">${value}
+              //   <i class="${i==0?'iconfont icon-right-1':''}"></i></div>`
+
+              //   })
+              // $("#specss").html(html);
+              // console.log(html)
               //设置商品图片
               var html = "";
               var htmlLg = "";
@@ -338,13 +354,13 @@ export default {
                 }
               )
               //设置当鼠标点击尺寸时候，i的属性（对号加到对应的上面）
-              $("#specss>div").click(
-                function(){
-                  $(this).parent().children().children().removeClass("iconfont icon-right-1")
-                  $(this).children().addClass("iconfont icon-right-1");
+              // $("#specss>div").click(
+              //   function(){
+              //     $(this).parent().children().children().removeClass("iconfont icon-right-1")
+              //     $(this).children().addClass("iconfont icon-right-1");
                 
-                }
-              )
+              //   }
+              // )
           })
       })
   },

@@ -4,8 +4,8 @@
 			<!-- 7网红爆款内容区域1 -->
 			<div class="index-five-list-r hotProduct">
 				<!-- 第一个内容块1 -->
-				<div v-for="(item,i) in products" :key="item.id" class="index-five-tab wow rotateInUpLeft" :data-wow-delay="`${0.2+i/10}s`">
-					<router-link :to="`/detail?product_id=${pics[i].prcid}`">
+				<div v-for="(item,i) in products" :key="i" class="index-five-tab wow rotateInUpLeft" :data-wow-delay="`${0.2+i/10}s`">
+					<router-link :to="`/detail?product_id=${pics[i]&&pics[i].pic_id}`">
 						<img :src="pics[i]&&pics[i].img" class="w-100  img-b">
 					</router-link>
 					<div class="index-five-tab-name">
@@ -69,9 +69,14 @@ export default {
 				{params:{status:this.state}}
 			).then(
 				({data})=>{
+					
+				console.log("daowole")
+				console.log(data)
+				console.log(data.product)
 					this.products=data.product
+				console.log(data.product)
 					return Promise.all(
-						data.product.map(
+						this.products.map(
 							item=>{
 								return axios.get(
 									`http://localhost:3000/pics?pid=${item.car_id}`
@@ -82,7 +87,10 @@ export default {
 				}
 			).then(values=>{
 				this.pics=values.map(_ => _.pics[0])
-				console.log(this.pics)
+			}).then(()=>{
+				console.log(1)
+				// this.products=this.products[0]
+				console.log(this.products)
 			})
 		}
   },created(){
