@@ -73,8 +73,8 @@
 			<!--搜索框和头像栏 -->
 			<div class="login fr">
 				<div class="search fl ">
-					<input type="text" class="fl font16 " placeholder="请输入要查找的内容">
-					<button class="search-btn bacpink fl font16 white1">搜索</button>
+					<input type="text" class="fl font16 " placeholder="请输入要查找的内容" v-model="search">
+					<button @click="getSearch" class="search-btn bacpink fl font16 white1">搜索</button>
 					<div style="clear:both"></div>
 				</div>
 				<div class="fl userphoto  ">
@@ -115,8 +115,19 @@
 <script>
 export default {
     data(){
-        return{}
-    }
+        return{
+			search:""
+		}
+	},
+	props: {
+		value: String
+	},
+	methods:{
+		getSearch(){
+			if(!this.search){return alert("请输入要搜索的蛋糕品种")}
+			window.open(`/#/list?search=${this.search}`, Date.now())	
+		}
+	},
 }
 </script>
 <style scoped>

@@ -23,11 +23,11 @@
       <div class="p-main-right">
         <h1 id="cake_name">星光游乐园<img src="images/index/icon-new-1.png" alt=""></h1>
         <h4 id="advertisement">生日蛋糕,巧克力,芝士,乳酪蛋糕,慕斯,鲜奶,商务,婚庆,提供健康、高品质蛋糕、时尚经典蛋糕,在线预订,新鲜配送到家。</h4>
-        <h2 id="price">￥{{price1}}</h2>
+        <h2 id="price">￥{{price2}}</h2>
         <span class="f-gray">甜度:<img src="images/index/tian2.png" alt=""></span>
         <div class="cweight" id="specss">
           <div v-for="(item , i) in sizes" :key="item" @click="changePrice(i)">{{item}}磅
-            <i class="iconfont icon-right-1" v-show="i===0" v-once></i>
+            <i class="iconfont icon-right-1" v-if="i===curIndex"></i>
           </div>
           <!-- <div>2.0磅</div>
           <div>3.0磅</div>
@@ -175,33 +175,32 @@
   <!-- 页面主体内容开始1 -->
 </template>
 <script>
+// import aaa from '@/components/Footer' 绝对引入
+// import aaa from './../components/Footer'  相对引入 必须点开头不可以点点
 export default {
   data(){
+    const sizes = ['1.2', '2.2', '3.2', '7.2']
     return{
       kinds:{default:"蛋糕"},
-      price1:"",
-	  sizes: ['1.2', '2.2', '3.2', '7.2'],
+      price1:0,
+	    sizes,
       psizes: [1,1.5,2,3.5],
-      cprice:{type:Function}
+      curIndex: 0
   }},
+  computed: {
+    price2() {
+      return (this.psizes[this.curIndex] * this.price1).toFixed(2)
+    }
+  },
   methods:{
-    changePrice(item, i, event) {
-      console.log(event.target);
-			$(event.target).siblings('img').show()
-			$(event.target).parent().siblings('div').children("img").hide()
-			this.$set(item, 'psize', this.psizes[i])
-		},
-   
+    changePrice(i) {
+      this.curIndex = i
+		}
   },
   components:{},
   created(){},
   mounted(){
      //点击修改价格
-              this.cprice=function(i){
-                console.log(i);
-                console.log($event.target);
-                 this.price1=this.price1*this.psizes[i]
-              }
     function ajax({url,type,data,dataType}){
   return new Promise(function(open,err){
 		//1. 创建xhr对象
@@ -367,7 +366,9 @@ export default {
   }
 </script>
 <style socped>
-  
+/* 绝对引入 */
+/* @import url('~@/assets/css/cart.css');   */
+/* @import url('../assets/css/cart.css'); 和引入js不一样*/  
 /* 第一部分1 */
 .p-main{
   padding-bottom: 20px;

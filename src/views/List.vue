@@ -9,6 +9,7 @@
       <span id="nav_name">{{search}}</span>
     </div>
     <!-- 面包屑导航2 -->
+<!-- <img :src="imgurl+'images/index/极地牛乳.png'" alt=""> -->
     <!-- 主体内容开始1 -->
     <div class="pro-all clearfix">
       <!-- 四个一组第一组1 -->

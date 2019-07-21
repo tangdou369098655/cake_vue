@@ -7,6 +7,7 @@ import './axios'
 //6.引入vuex
 import Vuex from "vuex"
 import '../public/css/detail.css'
+Vue.prototype.imgurl='http://localhost:8080/'
 
 // 7.注册vuex组件
 Vue.use(Vuex)

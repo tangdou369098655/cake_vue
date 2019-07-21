@@ -13,6 +13,7 @@ import proMydetails from './views/protal-all/Pro-mydetails'
 import proMyOrder from './views/protal-all/Pro-myorder'
 import proPersonal from './views/protal-all/Pro-personal'
 import proPwd from './views/protal-all/Pro-pwd'
+import Login from './views/Login.vue'
 
 Vue.use(Router)
 
@@ -72,6 +73,10 @@ export default new Router({
             },
             
           ]
+        },
+        {
+          path:'login',
+          component:Login
         },
         // {
         //   path:'about',

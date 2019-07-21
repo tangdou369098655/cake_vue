@@ -18,3 +18,8 @@ export default {
     }
 }
 </script>
+<style lang="less" scoped>
+// /deep/ .nav-item {
+//     display: none;
+// }
+</style>

@@ -7,8 +7,8 @@
 				<div class="index-five-list-r">
 					<!-- 第一个内容块1 -->
 					<div v-for="(item, i) in products" :key="item.id" class="index-five-tab wow flipInY animated" :data-wow-delay="`${0.2 + i/10}s`">
-						<a :target="createTarget(i)" :href="`/#/detail?product_id=${pics[i].prcid}`">
-							<img :src="pics[i] && pics[i].img" class="w-100  img-b">
+						<a v-if="pics[i]" :target="createTarget(i)" :href="`/#/detail?product_id=${pics[i].prcid}`">
+							<img :src="pics[i].img" class="w-100  img-b">
 						</a>
 						<div class="index-five-tab-name">
 							<span>{{item.index_title}}</span>

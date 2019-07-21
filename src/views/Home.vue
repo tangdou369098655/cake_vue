@@ -1,5 +1,6 @@
 <template>
-  <div>
+	<div class="loading" v-if="loading">loading...</div>
+  <div v-else>
     <!-- 主体开始 -->
 	<section class="wid index-one">
 		<div>
@@ -311,7 +312,8 @@ export default {
       shopList: [],
       sizes: ['1.2', '2.2', '3.2', '7.2'],
       products: [],
-      pics: []
+	  pics: [],
+	  loading: true
     }
   },
   methods: {
@@ -329,27 +331,14 @@ export default {
           })
         )
       }).then(values => {
-        this.pics = values.map(_ => _.pics[0])
+		this.pics = values.map(_ => _.pics[0])
+		this.loading = false
+		this.$nextTick(() => this.swiper())
         console.log(this.pics)
       })
-    }
 	},
-
-	// 注册子组件
-	components:{
-"home-one":homeOne,
-"home-two":homeTwo,
-"home-stitle":homeStitle,
-"home-sbanner":homeSbanner,
-"hot":hot,
-"home-hidden":homeHidden
-
-	},
-  created() {
-    this.getData()
-  },
-  mounted() {
-    // <!-- 设置小点点的动态开始 -->
+	swiper() {
+		 // <!-- 设置小点点的动态开始 -->
 	
 		var i = 0;
 		var LIWIDTH = 972;
@@ -456,6 +445,24 @@ export default {
 		}
 
 	// <!-- 轮播图JS结束 -->
+	}
+	},
+
+	// 注册子组件
+	components:{
+"home-one":homeOne,
+"home-two":homeTwo,
+"home-stitle":homeStitle,
+"home-sbanner":homeSbanner,
+"hot":hot,
+"home-hidden":homeHidden
+
+	},
+  created() {
+    this.getData()
+  },
+  mounted() {
+   
 		if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))) {
 			new WOW().init();
 		};
@@ -464,3 +471,17 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+.loading {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(255, 255, 255, .7);
+}
+</style>
