@@ -3,12 +3,14 @@
 <header>
 		<!--logo -->
 		<div class="wid main">
+				<router-link :to="`/`" target="_blank">
 			<div class="cake-logo fl ">
 					<div class="flower ">
 							<img src="images/index/flowers/f1.png" alt=""><img src="images/index/flowers/f3.png" alt="">
 					</div>
 				<img src="images/index/tdd2.png">
 			</div>
+					</router-link>
 			<!--导航详细 -->
 			<div class="nav fl">
 				<div class="location bacpink fl ">
@@ -18,54 +20,21 @@
 					</a>
 				</div>
 				<ul>
-					<li class="nav-item " >
-						<a href="#">下午茶</a>
-						<!-- 隐藏部分1 -->
-						<div class="navid">
-							<ul>
-								<li class="navid-list">
-									<img src="images/index/极地牛乳.png" alt="">
-									<p>极地牛乳</p>
-									<p>￥218.00</p>
-								</li>
-								<li class="navid-gray"></li>
-								<li class="navid-list">
-									<img src="images/index/极地牛乳.png" alt="">
-									<p>极地牛乳</p>
-									<p>￥218.00</p>
-								</li>
-								<li class="navid-gray"></li>
-								<li class="navid-list">
-									<img src="images/index/极地牛乳.png" alt="">
-									<p>极地牛乳</p>
-									<p>￥218.00</p>
-								</li>
-								<li class="navid-gray"></li>
-								<li class="navid-list">
-									<img src="images/index/极地牛乳.png" alt="">
-									<p>极地牛乳</p>
-									<p>￥218.00</p>
-								</li>
-							</ul>
-						</div>
-						<!-- 隐藏部分2 -->
-					</li>
-					<li  class="nav-item " >
-						<a href="#">送亲子</a>
-						<div class="navid"></div>
-					</li>
-					<li class="nav-item " >
-						<a href="#">送恋人</a>
-						<div class="navid"></div>
-					</li>
-					<li class="nav-item " >
-						<a href="#">送长辈</a>
-						<div class="navid"></div>
-					</li>
-					<li class="nav-item " >
-						<a href="#">活动产品</a>
-						<div class="navid"></div>
-					</li>
+					<!-- 导航栏标题部分1 -->
+					<header-title msg="下午茶" state=10></header-title>
+					<!-- 导航栏标题部分2 -->
+					<!-- 导航栏标题部分1 -->
+					<header-title msg="送亲子" state=11></header-title>
+					<!-- 导航栏标题部分2 -->
+					<!-- 导航栏标题部分1 -->
+					<header-title msg="送恋人" state=12></header-title>
+					<!-- 导航栏标题部分2 -->
+					<!-- 导航栏标题部分1 -->
+					<header-title msg="送长辈" state=13></header-title>
+					<!-- 导航栏标题部分2 -->
+					<!-- 导航栏标题部分1 -->
+					<header-title msg="活动产品" state=14></header-title>
+					<!-- 导航栏标题部分2 -->
 					<div style="clear:both"></div>
 				</ul>
 				<div style="clear:both"></div>
@@ -90,10 +59,12 @@
 				<img src="images/index/qq.png" alt="">
 				<p>QQ咨询</p>
 			</div>
+			<router-link :to="`/portal`" target="_blank">
 			<div class="nav-ritem ">
 				<img src="images/index/gerenzhongxin.png" alt="">
 				<p>个人中心</p>
 			</div>
+			</router-link>
 			<div class="nav-ritem ">
 				<img src="images/index/gouwuche.png" alt="">
 				<p>购物车</p>
@@ -113,21 +84,31 @@
 	<!--1导航栏结束 -->
 </template>
 <script>
+import { Promise } from 'q';
+import headerTitle from './Header-title'
 export default {
     data(){
         return{
-			search:""
+			search:"",
 		}
 	},
 	props: {
 		value: String
 	},
 	methods:{
+		// 搜索框点击事件1
 		getSearch(){
 			if(!this.search){return alert("请输入要搜索的蛋糕品种")}
 			window.open(`/#/list?search=${this.search}`, Date.now())	
-		}
+		},
+		// 搜索框点击事件2
 	},
+	components:{
+		"header-title":headerTitle
+	},
+	created(){
+		this.getData()
+	}
 }
 </script>
 <style scoped>

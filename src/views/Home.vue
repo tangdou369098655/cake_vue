@@ -83,7 +83,7 @@
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
 							<home-hidden
-						search="新疆"
+						search="新"
 						></home-hidden>
 						<!-- 隐藏部分鼠标滑过出现结束 -->
 					</div>
@@ -140,11 +140,11 @@
 			<div id="banner">
 				<div id="btn-left"></div>
 				<ul id="ul-imgs">
-					<li><a href="javascript:;"><img src="images/index/banner1.jpg"></a></li>
-					<li><a href="javascript:;"><img src="images/index/banner2.jpg"></a></li>
-					<li><a href="javascript:;"><img src="images/index/banner3.jpg"></a></li>
-					<li><a href="javascript:;"><img src="images/index/banner4.jpg"></a></li>
-					<li><a href="javascript:;"><img src="images/index/banner1.jpg"></a></li>
+					<li><a :href="`/#/detail?product_id=2`" target="_blank"><img src="images/index/banner1.jpg"></a></li>
+					<li><a  :href="`/#/detail?product_id=3`" target="_blank">><img src="images/index/banner2.jpg"></a></li>
+					<li><a :href="`/#/detail?product_id=4`" target="_blank">><img src="images/index/banner3.jpg"></a></li>
+					<li><a :href="`/#/detail?product_id=5`" target="_blank">><img src="images/index/banner4.jpg"></a></li>
+					<li><a  :href="`/#/detail?product_id=2`" target="_blank">><img src="images/index/banner1.jpg"></a></li>
 				</ul>
 				<ul id="ul-idxs">
 					<li class="active"></li>
@@ -171,9 +171,9 @@
 			</div>
 			<!-- 轮播图下第一区域第一块结束 -->
 			<!-- 轮播图下第一区域第2块开始 -->
-			<div class="index-two-r  wow bounceInUp animated" data-wow-delay="0.6s"><a href=""><img src="images/index/r2.png" alt=""></a></div>
-			<div class="index-two-r wow bounceInDown animated" data-wow-delay="0.9s"><a href=""><img src="images/index/r2.png" alt=""></a></div>
-			<div class="index-two-r wow  bounceInUp  animated" data-wow-delay="1.2s"><a href=""><img src="images/index/r2.png" alt=""></a></div>
+			<div class="index-two-r  wow bounceInUp animated" data-wow-delay="0.6s"><a  :href="`/#/detail?product_id=8`" target="_blank"><img src="images/index/r2.png" alt=""></a></div>
+			<div class="index-two-r wow bounceInDown animated" data-wow-delay="0.9s"><a  :href="`/#/detail?product_id=9`" target="_blank"><img src="images/index/r2.png" alt=""></a></div>
+			<div class="index-two-r wow  bounceInUp  animated" data-wow-delay="1.2s"><a  :href="`/#/detail?product_id=34`" target="_blank"><img src="images/index/r2.png" alt=""></a></div>
 			<!-- 轮播图下第一区域第2块结束 -->
 			<div style="clear:both"></div>
 		</div>
@@ -186,7 +186,7 @@
 			<!-- 2中部banner1-1 -->
 			<home-sbanner 
 			img_url="images/index/73695233867459470.jpg"
-			go_url="https://www.douban.com/note/694349689/"
+			:go_url="`/#/detail?product_id=34`"
 			></home-sbanner>
 			<!-- 2中部banner1-2 -->
 			
@@ -222,7 +222,7 @@
 			<!-- 4中部banner2-1 -->
 			<home-sbanner 
 			img_url="images/index/73695233867459470.jpg"
-			go_url="https://www.douban.com/note/694349689/"
+			:go_url="`/#/detail?product_id=34`"
 			></home-sbanner>
 			<!-- 4中部banner2-2 -->
 			<!-- 5匠心原创开始 -->
@@ -257,7 +257,7 @@
 			<!-- 6中部banner3-1 -->
 			<home-sbanner 
 			img_url="images/index/73695233867459470.jpg"
-			go_url="https://www.douban.com/note/694349689/"
+			:go_url="`/#/detail?product_id=34`"
 			></home-sbanner>
 			<!-- 6中部banner3-2 -->
 			<!-- 7网红爆款开始1 -->
@@ -271,7 +271,7 @@
 			<!-- 8中部banner4-1 -->
 			<home-sbanner 
 			img_url="images/index/73695233867459470.jpg"
-			go_url="https://www.douban.com/note/694349689/"
+			:go_url="`/#/detail?product_id=34`"
 			></home-sbanner>
 			<!-- 8中部banner4-2 -->
 			<!-- 9猜您喜欢开始1 -->
@@ -331,8 +331,8 @@ export default {
           })
         )
       }).then(values => {
-		this.pics = values.map(_ => _.pics[0])
-		this.loading = false
+		this.pics = values.map(_ => _.pics[0]);
+		this.loading = false;
 		this.$nextTick(() => this.swiper())
         console.log(this.pics)
       })

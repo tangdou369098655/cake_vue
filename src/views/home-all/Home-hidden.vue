@@ -2,8 +2,9 @@
 		<!-- 隐藏部分鼠标滑过出现开始 -->
 						<div class="index-left-item-right">
 							<ul>
-								<li v-for="(item,i) in products" :key="item.id">
+								<li v-for="(item,i) in products" :key="item.id"><router-link :to="`/detail?product_id=${pics[i]&&pics[i].pic_id}`" target="_blank">
 									<img :src="pics[i] && pics[i].img" alt="">
+                </router-link>
 									<span>{{item.cake_name}}</span>
 								</li>
 							</ul>
@@ -30,14 +31,14 @@ export default {
          if(!this.search) return;
          console.log(this.search);
       this.axios(
-        `http://localhost:3000/find?search_product=${this.search}`
+        `/find?search_product=${this.search}`
       ).then(
         ({data})=>{
           this.products=data.list
           return Promise.all(
             data.list.map(item=>{
-              return axios.get(
-                `http://localhost:3000/pics?pid=${item.product_id}`
+              return this.axios.get(
+                `/pics?pid=${item.product_id}`
               ).then(({data})=>data)
             })
           )
@@ -55,5 +56,7 @@ export default {
 }
 </script>
 <style scoped>
-  
+  .index-one-left-name .index-left-item-right a:hover {
+    background-color: #FFFFFFFF;
+}
 </style>

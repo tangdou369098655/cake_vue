@@ -1,7 +1,7 @@
 <template>
 			<!-- 6中部banner3-1 -->
 			<div class="active-banner wow fadeInRight animated" data-wow-delay="0.6s">
-				<a :href="go_url">
+				<a :href="go_url" target="_blank">
 					<img :src="img_url" alt="">
 				</a>
 			</div>

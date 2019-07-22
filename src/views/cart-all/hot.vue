@@ -7,9 +7,11 @@
       <p>{{msg}}</p>
       <div class="newon-all">
       <div class="newon-list" v-for="(item,i) in products" :key="i">
+        <router-link :to="`/detail?product_id=${pics[i]&&pics[i].pic_id}`" target="_blank">
         <div>
             <img :src="pics[i] && pics[i].img" alt="">
         </div>
+        </router-link>
         <div>
             <i>[{{kinds}}系列]{{item.index_title}}</i>
             <p>1.2磅</p>
@@ -40,15 +42,15 @@ export default {
     }
   }, methods:{
     getData() {
-      axios.get(
-        `http://localhost:3000/index`,{params:{status:this.state}}
+      this.axios.get(
+        `/index`,{params:{status:this.state}}
       ).then(
         ({data})=>{
           this.products=data.product
           return Promise.all(
             data.product.map(item=>{
-              return axios.get(
-                `http://localhost:3000/pics?pid=${item.car_id}`
+              return this.axios.get(
+                `/pics?pid=${item.car_id}`
               ).then(({data})=>data)
             })
           )
