@@ -93,7 +93,7 @@ export default {
 		}
 	},
 	props: {
-		value: String
+		// value: String
 	},
 	methods:{
 		// 搜索框点击事件1

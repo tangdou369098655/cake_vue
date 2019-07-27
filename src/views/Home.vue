@@ -141,10 +141,10 @@
 				<div id="btn-left"></div>
 				<ul id="ul-imgs">
 					<li><a :href="`/#/detail?product_id=2`" target="_blank"><img src="images/index/banner1.jpg"></a></li>
-					<li><a  :href="`/#/detail?product_id=3`" target="_blank">><img src="images/index/banner2.jpg"></a></li>
-					<li><a :href="`/#/detail?product_id=4`" target="_blank">><img src="images/index/banner3.jpg"></a></li>
-					<li><a :href="`/#/detail?product_id=5`" target="_blank">><img src="images/index/banner4.jpg"></a></li>
-					<li><a  :href="`/#/detail?product_id=2`" target="_blank">><img src="images/index/banner1.jpg"></a></li>
+					<li><a  :href="`/#/detail?product_id=3`" target="_blank"><img src="images/index/banner2.jpg"></a></li>
+					<li><a :href="`/#/detail?product_id=4`" target="_blank"><img src="images/index/banner3.jpg"></a></li>
+					<li><a :href="`/#/detail?product_id=5`" target="_blank"><img src="images/index/banner4.jpg"></a></li>
+					<li><a  :href="`/#/detail?product_id=2`" target="_blank"><img src="images/index/banner1.jpg"></a></li>
 				</ul>
 				<ul id="ul-idxs">
 					<li class="active"></li>
@@ -171,9 +171,19 @@
 			</div>
 			<!-- 轮播图下第一区域第一块结束 -->
 			<!-- 轮播图下第一区域第2块开始 -->
-			<div class="index-two-r  wow bounceInUp animated" data-wow-delay="0.6s"><a  :href="`/#/detail?product_id=8`" target="_blank"><img src="images/index/r2.png" alt=""></a></div>
-			<div class="index-two-r wow bounceInDown animated" data-wow-delay="0.9s"><a  :href="`/#/detail?product_id=9`" target="_blank"><img src="images/index/r2.png" alt=""></a></div>
-			<div class="index-two-r wow  bounceInUp  animated" data-wow-delay="1.2s"><a  :href="`/#/detail?product_id=34`" target="_blank"><img src="images/index/r2.png" alt=""></a></div>
+			<div class="index-two-r  wow bounceInUp animated" data-wow-delay="0.6s">
+				<a  :href="`/#/detail?product_id=8`" target="_blank"><img src="images/index/r2.png" alt=""></a>
+				</div>
+			<div class="index-two-r wow bounceInDown animated" data-wow-delay="0.9s">
+				<a  :href="`/#/detail?product_id=9`" target="_blank">
+				<img src="images/index/bl.jpg" alt="">
+				</a>
+				</div>
+			<div class="index-two-r wow  bounceInUp  animated" data-wow-delay="1.2s">
+				<a  :href="`/#/detail?product_id=34`" target="_blank">
+				<img src="images/index/casn.jpg" alt="">
+				</a>
+				</div>
 			<!-- 轮播图下第一区域第2块结束 -->
 			<div style="clear:both"></div>
 		</div>
@@ -185,7 +195,7 @@
 		<div class="wid">
 			<!-- 2中部banner1-1 -->
 			<home-sbanner 
-			img_url="images/index/73695233867459470.jpg"
+			:img_url="sbanner[0]"
 			:go_url="`/#/detail?product_id=34`"
 			></home-sbanner>
 			<!-- 2中部banner1-2 -->
@@ -221,7 +231,7 @@
 			<!-- 从cart子组件引入2 -->
 			<!-- 4中部banner2-1 -->
 			<home-sbanner 
-			img_url="images/index/73695233867459470.jpg"
+			:img_url="sbanner[4]"
 			:go_url="`/#/detail?product_id=34`"
 			></home-sbanner>
 			<!-- 4中部banner2-2 -->
@@ -256,7 +266,7 @@
 			<!-- 从cart子组件引入2 -->
 			<!-- 6中部banner3-1 -->
 			<home-sbanner 
-			img_url="images/index/73695233867459470.jpg"
+			:img_url="sbanner[2]"
 			:go_url="`/#/detail?product_id=34`"
 			></home-sbanner>
 			<!-- 6中部banner3-2 -->
@@ -270,7 +280,7 @@
 			<!-- 7网红爆款开始2 -->
 			<!-- 8中部banner4-1 -->
 			<home-sbanner 
-			img_url="images/index/73695233867459470.jpg"
+			:img_url="sbanner[3]"
 			:go_url="`/#/detail?product_id=34`"
 			></home-sbanner>
 			<!-- 8中部banner4-2 -->
@@ -313,7 +323,15 @@ export default {
       sizes: ['1.2', '2.2', '3.2', '7.2'],
       products: [],
 	  pics: [],
-	  loading: true
+	  loading: true,
+		sbanner:[
+			'images/index/73695233867459470.jpg',
+			'images/index/sbanner1.jpg',
+			'images/index/sbanner2.jpg',
+			'images/index/sbanner3.jpg',
+			'images/index/sbanner4.jpg',
+			'images/index/sbanner5.jpg',
+			]
     }
   },
   methods: {

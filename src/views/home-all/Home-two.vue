@@ -4,7 +4,7 @@
 			<!-- 7网红爆款内容区域1 -->
 			<div class="index-five-list-r hotProduct">
 				<!-- 第一个内容块1 -->
-				<div v-for="(item,i) in products" :key="i" class="index-five-tab wow rotateInUpLeft" :data-wow-delay="`${0.2+i/10}s`">
+				<div v-for="(item,i) in products" :key="i" class="index-five-tab wow bounceInUp" :data-wow-delay="`${0.2+i/5}s`">
 					<router-link :to="`/detail?product_id=${pics[i]&&pics[i].pic_id}`">
 						<img :src="pics[i]&&pics[i].img" class="w-100  img-b">
 					</router-link>
