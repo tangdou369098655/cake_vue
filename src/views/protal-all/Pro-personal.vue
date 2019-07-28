@@ -13,12 +13,12 @@
       </div>
       <ul>
         <li class="personal-name">糖糖</li>
-        <li class="text-gray"><span>修改个人信息&gt;</span></li>
+        <router-link tag="li" to="/portal/my-details" class="text-gray"><span>修改个人信息&gt;</span></router-link>
       </ul>
       <ul>
         <li>账户安全：<span>普通</span></li>
         <li>绑定手机：<span>18625578825</span></li>
-        <li>绑定邮箱：<span>未绑定</span></li>
+        <router-link tag="li" to="/portal/my-details">绑定邮箱：<span>未绑定</span></router-link>
       </ul>
     </div>
     <div class="personal-bottom">

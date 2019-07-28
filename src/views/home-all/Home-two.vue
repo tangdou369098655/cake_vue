@@ -18,19 +18,19 @@
 					<div class="index-five-tab-volume">
 						<span>销量:</span>
 						<span>5465454</span></div>
-					<a href="javascript:;" class="index-five-tab-car">
-						<img src="images/index/index-five-tab-car.png" class="w-100">
+					<a href="javascript:;" class="index-five-tab-car" @click="tabCarClick">
+						<img src="myimg" class="w-100">
 					</a>
 					<!-- 购物车隐藏部分1 -->
 					<div class="index-five-tab-tc">
 						<div class="index-five-tab-tc1">
 							<span>￥</span>
-							<span>{{item.index_price}}</span>
+							<span>{{(item.index_price * (item.psize || 1)).toFixed(2)}}</span>
 						</div>
 						<div class="index-five-tab-tc2 text-center">
-							<div class="clearfix" v-for="item in sizes" :key="item">
-								<a href="javascript:;">{{item}}</a>
-								<!-- <img src="images/index/seven_7.png" alt=""> -->
+							<div class="clearfix" v-for="(item2,i) in sizes" :key="item2">
+								<a @click="changePrice(item,i,$event)" href="javascript:;">{{item2}}</a>
+								<img v-once v-show="i === 0" src="images/index/seven_7.png" alt="">
 							</div>
 						</div>
 						<div class="index-five-tab-tc3">
@@ -59,10 +59,21 @@ export default {
     return{
 			products:[],
 			pics:[],
-      sizes: ['1.2', '2.2', '3.2', '7.2'],
+			sizes: ['1.2', '2.2', '3.2', '7.2'],
+			psizes:[1,1.5,2,2.5]
 		}
   },
   methods:{
+		// 购物车点击事件,点击后出现隐藏框
+		tabCarClick(event){
+			$(event.target).parent().next().show()
+		},
+		// 点击尺寸增加选中小框对号同时改变价格
+		changePrice(item,i,$event){
+			$(event.target).siblings('img').show()
+			$(event.target).parent().siblings('div').children("img").hide()
+			this.$set(item,'psize',this.psizes[i]) //给此item增加属性绑定新数组元素
+		},
 		getData(){
 			axios.get(
 				`http://localhost:3000/index`,

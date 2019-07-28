@@ -1,13 +1,13 @@
 <template>
 			<!-- 5匠心原创内容1 -->
 			<div class="index-five-list">
-				<a href="#" class="index-five-list-l wow rollIn animated" data-wow-delay="0.3s">
-					<img src="images/index/index-five-1.png" >
+				<a href="javascript:;" class="index-five-list-l wow rollIn animated" data-wow-delay="0.3s" style="display:inline-block">
+					<img :src="HomeOneImg" >
 				</a>
 				<div class="index-five-list-r">
 					<!-- 第一个内容块1 -->
 					<div v-for="(item, i) in products" :key="item.id" class="index-five-tab wow flipInY animated" :data-wow-delay="`${0.2 + i/10}s`">
-						<a v-if="pics[i]" :target="createTarget(i)" :href="`/#/detail?product_id=${pics[i].prcid}`">
+						<a v-if="pics[i]" :target="createTarget(i)" :href="`/detail?product_id=${pics[i].prcid}`">
 							<img :src="pics[i].img" class="w-100  img-b">
 						</a>
 						<div class="index-five-tab-name">
@@ -56,6 +56,8 @@ export default {
 	name:"Home-one",
 	props:{
 		state:{default:"2"},
+		HomeOneImg:"",
+		HomeOneImgurl:""
 	},
   data(){
     return{
@@ -66,16 +68,18 @@ export default {
     }
 	},
 	methods:{
+		// 购物车点击事件,点击后出现隐藏框
 		tabCarClick(event) {
 			$(event.target).parent().next().show()
 		},
 		tabTc4Click(event) {
 			$(event.target).parent().hide()
 		},
+		// 点击尺寸增加选中小框对号同时改变价格
 		changePrice(item, i, event) {
 			$(event.target).siblings('img').show()
 			$(event.target).parent().siblings('div').children("img").hide()
-			this.$set(item, 'psize', this.psizes[i])
+			this.$set(item, 'psize', this.psizes[i]) //给此item增加属性绑定新数组元素
 		},
 		createTarget() {
 			return Math.random()

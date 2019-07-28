@@ -37,7 +37,10 @@
 				</div>
 				<div class="login-login2">
 					<input type="text" placeholder="手机号" class="input1" v-model="formData.utelephone">
-					<input type="text" placeholder="密码" class="input1" v-model="formData.upassword">
+					<input type="password" placeholder="密码" class="input1" v-model="formData.upassword">
+					<input type="text" class="input1" v-model="formData.captcha" @keyup.enter="submit">
+					<div style="background:#fff">
+					<img alt="" ref="captcha" @click="updateCaptcha"></div>
 					<input type="button" value="登录" class="input2" @click="submit">
 				</div>
 				<div class="login-login3">
@@ -84,18 +87,31 @@ export default{
         return{
             formData: {}
         }
-    },
+	},
+	mounted(){
+		this.updateCaptcha()
+	},
     methods:{
+		updateCaptcha(){
+			this.$refs.captcha.src=`${this.imgurl}captcha?t=${Date.now()}`
+		},
         submit(){
             this.axios.post('/user/login', this.formData).then(({data}) => {
                 if (data == 1) {
-                    alert("登录成功")
+					let { redirect } = this.$route.query
+					location.href= redirect || '/'
                 };
                 if (data == 2) {
-                    alert("用户名或密码错误，请重新输入")
+					alert("用户名或密码错误，请重新输入")
+					this.updateCaptcha()
                 };
                 if (data == 3) {
                     alert("用户名或密码不能为空")
+					this.updateCaptcha()
+                };
+                if (data == 4) {
+					alert("验证码错误")
+					this.updateCaptcha()
                 };
             })
         }
@@ -103,9 +119,9 @@ export default{
 
 }
 </script>
-<style scoped>
+<style scoped lang="less">
   .tdd_bgc{
-background-image: url(http://localhost:8080/images/index/bgc02.jpg);
+background-image: ~"url(@{baseurl}images/index/bgc02.jpg)";
 position:relative;
 background-size:cover;
 width:100%;

@@ -1,39 +1,8 @@
 <template>
   <!-- 页面主体内容开始1 -->
-  <!-- 目前状态信息1 -->
   <div class="wid">
-    <div class="state">
-      <ul>
-        <li class="active">
-          <div></div>
-          <i class="icon iconfont icon-selected"></i>
-          <p>1</p>
-          <span>购物车</span>
-        </li>
-        <li class="">
-          <div class="lang-line"></div>
-          <i class="icon iconfont icon-selected"></i>
-          <p>2</p>
-          <span>确认订单</span>
-        </li>
-        <li class="">
-          <div class="lang-line"></div>
-          <i class="icon iconfont icon-selected"></i>
-          <p>3</p>
-          <span>提交订单</span>
-        </li>
-        <li class="">
-          <div class="lang-line"></div>
-          <i class="icon iconfont icon-selected"></i>
-          <p>4</p>
-          <span>支付成功</span>
-
-        </li>
-        <li class="">
-          <div></div>
-        </li>
-      </ul>
-    </div>
+    <!-- 目前状态信息1 -->
+    <cart-state :current="1"></cart-state>
     <!-- 目前状态信息2 -->
     <!-- 收货地址1 -->
     <div class="address">
@@ -264,6 +233,7 @@
 import axios from 'axios'
 //引入cart的子组件使用
 import hot from './cart-all/hot'
+import cartState from './cart-all/Cart-state'
 // import '@/assets/css/detail.css'
 
 
@@ -276,6 +246,7 @@ export default{
   },
   components:{
 "hot":hot,
+"cart-state":cartState
   }
 }
 

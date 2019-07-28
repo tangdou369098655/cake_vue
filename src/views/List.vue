@@ -9,6 +9,8 @@
       <span id="nav_name">{{search}}</span>
     </div>
     <!-- 面包屑导航2 -->
+    <!-- 需要调整部分1 -->
+    <nothing v-show="products.length<1"></nothing>
 <!-- <img :src="imgurl+'images/index/极地牛乳.png'" alt=""> -->
     <!-- 主体内容开始1 -->
     <div class="pro-all clearfix">
@@ -26,21 +28,12 @@
         <div class="index-five-tab-tc">
           <div class="index-five-tab-tc1 pink1">
             <span>￥</span>
-            <span>{{item.price}}</span>
+            <span>{{(item.price* (item.psize || 1)).toFixed(2)}}</span>
           </div>
           <div class="index-five-tab-tc2 text-center">
-            <div class="clearfix pro-get">
-              <a href="javascript:;">1.2磅</a>
-              <img src="images/index/seven_7.png" alt="" >
-            </div>
-            <div class="clearfix">
-              <a href="javascript:;">2.2磅</a>
-            </div>
-            <div class="clearfix">
-              <a href="javascript:;">3.2磅</a>
-            </div>
-            <div class="clearfix">
-              <a href="javascript:;">7.2磅</a>
+            <div class="clearfix pro-get" v-for="(item2, i) in sizes" :key="item2">
+              <a  @click="changePrice(item, i, $event)"   href="javascript:;">{{item2}}磅</a>
+              <img src="images/index/seven_7.png" alt="" v-once v-show="i === 0">
             </div>
             </div>
               <div class="index-five-tab-tc3 text-center pro-btn">
@@ -67,6 +60,7 @@
 </template>
 <script>
 import axios from 'axios'
+import Nothing from './pub-all/Nothing'
 export default {
   name:"List",
   props:{
@@ -82,6 +76,12 @@ export default {
     }
   },
   methods:{
+    // 点击尺寸增加选中小框对号同时改变价格
+		changePrice(item, i, event) {
+			$(event.target).siblings('img').show()
+			$(event.target).parent().siblings('div').children("img").hide()
+			this.$set(item, 'psize', this.psizes[i]) //给此item增加属性绑定新数组元素
+		},
        getData() {
         //  var {search1}=this.$route.query;
          this.search=this.$route.query.search;
@@ -108,6 +108,9 @@ export default {
     }
   },created(){
     this.getData()
+  },
+  components:{
+    "nothing":Nothing
   }
 }
 </script>
