@@ -171,10 +171,14 @@
       
     </div>
     <!-- 第二部分商品详情开始2 -->
+    <!-- 页面底部价格解释1 -->
+    <pro-bottom></pro-bottom>
+    <!-- 页面底部价格解释2 -->
   </div>
   <!-- 页面主体内容开始1 -->
 </template>
 <script>
+import proBottom from './protal-all/Pro-bottom'
 // import aaa from '@/components/Footer' 绝对引入
 // import aaa from './../components/Footer'  相对引入 必须点开头不可以点点
 export default {
@@ -197,7 +201,9 @@ export default {
       this.curIndex = i
 		}
   },
-  components:{},
+  components:{
+    "pro-bottom":proBottom
+  },
   created(){},
   mounted(){
      //点击修改价格

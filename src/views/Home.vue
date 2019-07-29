@@ -160,7 +160,7 @@
 		<!-- 轮播图下第一区域开始 -->
 		<div class="index-two ">
 			<!-- 轮播图下第一区域第一块开始 -->
-			<div class="index-two-r1 wow bounceInDown  animated" data-wow-delay="0.4s">
+			<div class="index-two-r1 wow bounceInDown " data-wow-delay="0.4s">
 				<div class="index-two-r0">
 					<div class="index-two-r01"></div>
 					<div class="index-two-r02"></div>
@@ -345,6 +345,11 @@ export default {
     }
   },
   methods: {
+		wow(){
+			if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+	new WOW().init();
+};
+		},
     getData() {
       axios.get(
         `http://localhost:3000/index`,
@@ -487,7 +492,8 @@ export default {
 
 	},
   created() {
-    this.getData()
+		this.getData(),
+		this.	wow()
   },
   mounted() {
    

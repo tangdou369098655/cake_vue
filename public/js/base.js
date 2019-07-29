@@ -18,6 +18,9 @@ xhr.send(formdata);
 //登录按钮2
 //点击按钮加入购物车1
 
+if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+	new WOW().init();
+};
 
 
 	// 极致精选开始1

@@ -157,6 +157,9 @@
     kinds="尊享"
     ></hot>  
     <!-- 热销新品推荐2 -->
+    <!-- 页面底部价格解释1 -->
+    <pro-bottom></pro-bottom>
+    <!-- 页面底部价格解释2 -->
   </div>
   <!-- 页面主体内容开始1 -->
 </template>
@@ -165,6 +168,7 @@ import axios from 'axios'
 import hot from './cart-all/hot'
 import cartState from './cart-all/Cart-state'
 import cartDetails from './cart-all/Cart-details'
+import proBottom from './protal-all/Pro-bottom'
 export default {
 	name:"cart",
 	props:{
@@ -201,7 +205,8 @@ export default {
   components:{
     "hot":hot,
     "cart-state":cartState,
-    "cart-details":cartDetails
+    "cart-details":cartDetails,
+    "pro-bottom":proBottom
   },
   created(){
     this.getData()

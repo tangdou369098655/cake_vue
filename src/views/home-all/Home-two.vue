@@ -49,6 +49,7 @@
   </div>
 </template>
 <script>
+import wow from 'wowjs'
 import axios from 'axios'
 export default {
   name:"Home-two",
@@ -106,7 +107,10 @@ export default {
 		}
   },created(){
     this.getData()
-  }
+	},
+	mounted(){
+ new WOW().init()
+	}
 }
 </script>
 <style scoped>

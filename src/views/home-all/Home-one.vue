@@ -31,13 +31,13 @@
 								<span>{{(item.index_price * (item.psize || 1)).toFixed(2)}}</span>
 							</div>
 							<div class="index-five-tab-tc2 text-center">
-								<div class="clearfix" v-for="(item2, i) in sizes" :key="item2">
-									<img v-once v-show="i === 0" src="images/index/seven_7.png" alt="">
-									<a @click="changePrice(item, i, $event)" href="javascript:;">{{item2}}磅</a>
+								<div class="clearfix" v-for="(item2, a) in sizes" :key="a">
+									<img v-once v-show="a === 0" src="images/index/seven_7.png" alt="">
+									<a @click="changePrice(item, a, $event)" href="javascript:;">{{item2}}磅</a>
 								</div>
 							</div>
 							<div class="index-five-tab-tc3">
-								<a href="#">加入购物车</a>
+								<a  @click="addCart(item)" >加入购物车</a>
 								<a href="#">立即购买</a>
 							</div>
 							<i class="index-five-tab-tc4 iconfont icon-chahao" @click="tabTc4Click"></i>
@@ -64,10 +64,18 @@ export default {
       products:[],
       pics:[],
 	  sizes: ['1.2', '2.2', '3.2', '7.2'],
-	  psizes: [1, 1.5, 2, 3.5]
+		psizes: [1, 1.5, 2, 3.5],
+		price:0,
+		size:'',
     }
 	},
 	methods:{
+		//加入购物车事件
+		addCart(item){
+			this.price=(item.index_price * (item.psize || 1)).toFixed(2);
+			console.log(this.price);
+			console.log(this.size);
+		},
 		// 购物车点击事件,点击后出现隐藏框
 		tabCarClick(event) {
 			$(event.target).parent().next().show()
@@ -80,6 +88,7 @@ export default {
 			$(event.target).siblings('img').show()
 			$(event.target).parent().siblings('div').children("img").hide()
 			this.$set(item, 'psize', this.psizes[i]) //给此item增加属性绑定新数组元素
+			this.size=this.sizes[i]
 		},
 		createTarget() {
 			return Math.random()
