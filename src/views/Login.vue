@@ -6,15 +6,15 @@
 		<nav class="login-nav">
 			<div class="login-nav_div">
 				<a href="www.tangdd.cn">
-					<img src="images/index/tdd.png" class="tddlogo">
+					<img :src="imgurl+'images/index/tdd.png'" class="tddlogo">
 				</a>
 				<span>|</span>
 				<span>通行证</span>
 				<span></span>
 				<i class="fa  fa-spin">
-					<img src="images/index/flowers/flo7.png" class="flower4"></i>
+					<img :src="imgurl+'images/index/flowers/flo7.png'" class="flower4"></i>
 				<i class="fa  fa-spin">
-					<img src="images/index/flowers/flo7.png" class="flower5"></i>
+					<img :src="imgurl+'images/index/flowers/flo7.png'" class="flower5"></i>
 			</div>
 			<hr class="login-nav-hr">
 		</nav>
@@ -23,7 +23,7 @@
 			<!--大图标以及网站介绍-->
 			<div class="login-section_top">
 				<a href="#">
-					<img src="images/index/tdd2.png">
+					<img :src="imgurl+'images/index/tdd2.png'">
 				</a>
 				<p>登录糖豆豆蛋糕tangdd.cn-分享新鲜美时美刻！</p>
 			</div>
@@ -67,15 +67,15 @@
 			</div>
 			<div class="login-footer-flower">
 				<i class="fa  fa-spin">
-					<img src="images/index/flowers/flo7.png" class="flower1"></i>
+					<img :src="imgurl+'images/index/flowers/flo7.png'" class="flower1"></i>
 				<i class="fa   fa-spin">
-					<img src="images/index/flowers/flo14.gif" class="flower2"></i>
+					<img :src="imgurl+'images/index/flowers/flo14.gif'" class="flower2"></i>
 				<i class="fa  fa-spin">
-					<img src="images/index/flowers/flo14.gif" class="flower3"></i>
+					<img :src="imgurl+'images/index/flowers/flo14.gif'" class="flower3"></i>
 				<i class="fa  fa-spin">
-					<img src="images/index/flowers/flo3.gif" class="flower4"></i>
+					<img :src="imgurl+'images/index/flowers/flo3.gif'" class="flower4"></i>
 				<i class="fa  fa-spin">
-					<img src="images/index/flowers/flo7.png" class="flower5"></i>
+					<img :src="imgurl+'images/index/flowers/flo7.png'" class="flower5"></i>
 			</div>
 		</footer>
 	</div>

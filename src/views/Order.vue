@@ -41,7 +41,7 @@
       <!-- 订单内容模块1 -->
       <div class="order-details">
         <div class="details-img">
-          <img src="images/index/兔小萌.png" alt="">
+          <img :src="imgurl+'images/index/兔小萌.png'" alt="">
           <div>
             <p>极地牛乳</p>
             <p></p>
@@ -77,18 +77,18 @@
       <!-- 添加蜡烛1 -->
       <div class="order-others">
           <div>
-            <img src="images/index/icon_1.png" alt="">
+            <img :src="imgurl+'images/index/icon_1.png'" alt="">
             <span>添加蜡烛</span>
           </div>
           <div>
-            <img src="images/index/icon_2.png" alt="">
+            <img :src="imgurl+'images/index/icon_2.png'" alt="">
             <span>添加餐具</span>
           </div>
           <div>
             <span>共计</span>
             <span>1</span>
             <span>件商品</span>
-            <img src="images/index/icon_cart_dustbin.png" alt="">
+            <img :src="imgurl+'images/index/icon_cart_dustbin.png'" alt="">
           </div>
         </div>
         <!-- 添加蜡烛2 -->
@@ -97,11 +97,11 @@
           <!-- 餐具隐藏小节1 -->
           <div>
             <span>每款经典系列蛋糕免费赠送1套标准蜡烛</span>
-            <img src="images/index/lzuncheck.png" alt="">
+            <img :src="imgurl+'images/index/lzuncheck.png'" alt="">
           </div>
           <div class="add-candle">
             <div>
-              <img src="images/index/candle1.jpg" alt="">
+              <img :src="imgurl+'images/index/candle1.jpg'" alt="">
               <div class="add-one">
                 <p>TANG cake 标准蜡烛</p>
                 <p></p>
@@ -116,7 +116,7 @@
               </div>
             </div>
             <div>
-              <img src="images/index/candle2.jpg" alt="">
+              <img :src="imgurl+'images/index/candle2.jpg'" alt="">
               <div class="add-one">
                 <p>TANG Happy Birthday 字母蜡烛</p>
                 <p></p>

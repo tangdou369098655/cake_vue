@@ -24,7 +24,7 @@
         </ul>
         <ul class="myorder-title clearfix flex-item">
           <li>
-            <img src="images/index/黑白巧克力芝士.png" alt="">
+            <img :src="imgurl+'images/index/黑白巧克力芝士.png'" alt="">
             <span>黑白巧克力芝士/尺寸：2.2寸/蜡烛1份/送达时间：2018-4-3 09:00-10:00</span>
             <i>x1</i>
           </li>

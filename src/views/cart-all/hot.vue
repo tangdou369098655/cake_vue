@@ -6,10 +6,10 @@
     <div class="newon">
       <p>{{msg}}</p>
       <div class="newon-all">
-      <div  v-for="(item,i) in products" :key="i"  class="newon-list  wow bounceInUp" :data-wow-delay="`${0.2+i/5}s`" >
+      <div  v-for="(item,i) in products" :key="i"  class="newon-list  wow rollIn" :data-wow-delay="`${0.2+i/5}s`" >
         <router-link :to="`/detail?product_id=${pics[i]&&pics[i].pic_id}`" target="_blank">
         <div>
-            <img :src="pics[i] && pics[i].img" alt="">
+            <img :src="imgurl+(pics[i] && pics[i].img)" alt="">
         </div>
         </router-link>
         <div>

@@ -9,7 +9,7 @@
         <ul class="myorder-myself">
           <li>
             <span>&emsp;&emsp;头像：</span>
-            <img src="images/index/d7.gif" alt="">
+            <img :src="imgurl+'images/index/d7.gif'" alt="">
           </li>
           <li>
             <span>更换头像：</span>

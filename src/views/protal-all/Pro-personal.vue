@@ -9,7 +9,7 @@
                   </div>
     <div class="personal-top">
       <div class="img-self">
-        <img src="images/index/d7.gif" alt="">
+        <img :src="imgurl+'images/index/d7.gif'" alt="">
       </div>
       <ul>
         <li class="personal-name">糖糖</li>

@@ -182,7 +182,7 @@ header .flower>img:nth-child(2) {
   height:100px;
   left:105px;
   top:0;
-  background:url("../images/index/weixin_ewm.png");
+  background:url("http://localhost:3000/images/index/weixin_ewm.png");
   background-size:100% 100%;
   opacity: 0;
   transition:all 0.4s linear;

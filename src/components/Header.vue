@@ -6,9 +6,9 @@
 				<router-link :to="`/`" target="_blank">
 			<div class="cake-logo fl ">
 					<div class="flower ">
-							<img src="images/index/flowers/f1.png" alt=""><img src="images/index/flowers/f3.png" alt="">
+							<img :src="imgurl+'images/index/flowers/f1.png'" alt=""><img :src="imgurl+'images/index/flowers/f3.png'" alt="">
 					</div>
-				<img src="images/index/tdd2.png">
+				<img :src="imgurl+'images/index/tdd2.png'">
 			</div>
 					</router-link>
 			<!--导航详细 -->
@@ -62,28 +62,28 @@
 		<!-- 右侧固定导航栏1 -->
 		<div class="right-nav">
 			<div class="nav-ritem ">
-				<img src="images/index/qq.png" alt="">
+				<img :src="imgurl+'images/index/qq.png'" alt="">
 				<p>QQ咨询</p>
 			</div>
 			<router-link :to="`/portal`" target="_blank">
 			<div class="nav-ritem ">
-				<img src="images/index/gerenzhongxin.png" alt="">
+				<img :src="imgurl+'images/index/gerenzhongxin.png'" alt="">
 				<p>个人中心</p>
 			</div>
 			</router-link>
 			<router-link :to="`/cart`" target="_blank">
 			<div class="nav-ritem ">
-				<img src="images/index/gouwuche.png" alt="">
+				<img :src="imgurl+'images/index/gouwuche.png'" alt="">
 				<p>购物车</p>
 			</div>
 			</router-link>
 			<div class="nav-ritem ">
 					<div class="big-png"></div>
-				<img src="images/index/weixin_ewm.png" alt="">
+				<img :src="imgurl+'images/index/weixin_ewm.png'" alt="">
 				<p>下载客户端</p>
 			</div>
 			<div class="nav-ritem ">
-				<img src="images/index/totop.png" alt="">
+				<img :src="imgurl+'images/index/totop.png'" alt="">
 				<p>回到顶部</p>
 			</div>
 		</div>

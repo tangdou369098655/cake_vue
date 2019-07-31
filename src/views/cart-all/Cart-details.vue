@@ -2,7 +2,7 @@
  <!-- 订单内容模块1 -->
       <div class="order-details">
         <div class="details-img">
-          <img src="images/index/兔小萌.png" alt="">
+          <img :src="imgurl+'images/index/兔小萌.png'" alt="">
           <div>
             <p>极地牛乳</p>
             <p></p>

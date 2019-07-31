@@ -1,5 +1,5 @@
 .tdd_bgc{
-background-image: url(../images/index/bgc02.jpg);
+background-image: url(http://localhost:3000/images/index/bgc02.jpg);
 position:relative;
 background-size:cover;
 width:100%;

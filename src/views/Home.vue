@@ -12,9 +12,9 @@
 					<div class="index-left-item ">
 						<a href="#">
 							<div class="open-item">
-								<img src="images/index/one_1.png">
+								<img  :src="imgurl+'images/index/one_1.png'">
 								<p>极致精选</p>
-								<img src="images/index/gt.png" class="img2" />
+								<img  :src="imgurl+'images/index/gt.png'" class="img2" />
 							</div>
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
@@ -28,9 +28,9 @@
 					<div class="index-left-item">
 						<a href="#">
 							<div>
-								<img src="images/index/one_2.png">
+								<img  :src="imgurl+'images/index/one_2.png'">
 								<p>匠心原创</p>
-								<img src="images/index/gt.png" class="img2" />
+								<img  :src="imgurl+'images/index/gt.png'" class="img2" />
 							</div>
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
@@ -44,9 +44,9 @@
 					<div class="index-left-item">
 						<a href="#">
 							<div>
-								<img src="images/index/one_3.png">
+								<img  :src="imgurl+'images/index/one_3.png'">
 								<p>优雅西点</p>
-								<img src="images/index/gt.png" class="img2" />
+								<img  :src="imgurl+'images/index/gt.png'" class="img2" />
 							</div>
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
@@ -60,9 +60,9 @@
 					<div class="index-left-item">
 						<a href="#">
 							<div>
-								<img src="images/index/one_4.png">
+								<img  :src="imgurl+'images/index/one_4.png'">
 								<p>乳品系列</p>
-								<img src="images/index/gt.png" class="img2" />
+								<img  :src="imgurl+'images/index/gt.png'" class="img2" />
 							</div>
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
@@ -76,9 +76,9 @@
 					<div class="index-left-item">
 						<a href="#">
 							<div>
-								<img src="images/index/one_5.png">
+								<img  :src="imgurl+'images/index/one_5.png'">
 								<p>其他系列</p>
-								<img src="images/index/gt.png" class="img2">
+								<img  :src="imgurl+'images/index/gt.png'" class="img2">
 							</div>
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
@@ -101,9 +101,9 @@
 					<div class="index-left-item ">
 						<a href="#">
 							<div>
-								<img src="images/index/cake/f7.png">
+								<img :src="imgurl+'images/index/cake/f7.png'">
 								<p>茶歇活动</p>
-								<img src="images/index/gt.png" class="img2">
+								<img :src="imgurl+'images/index/gt.png'" class="img2">
 							</div>
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
@@ -117,9 +117,9 @@
 					<div class="index-left-item">
 						<a href="#">
 							<div>
-								<img src="images/index/cake/f1.png">
+								<img :src="imgurl+'images/index/cake/f1.png'">
 								<p>节日特供</p>
-								<img src="images/index/gt.png" class="img2">
+								<img :src="imgurl+'images/index/gt.png'" class="img2">
 							</div>
 						</a>
 						<!-- 隐藏部分鼠标滑过出现开始 -->
@@ -140,11 +140,11 @@
 			<div id="banner">
 				<div id="btn-left"></div>
 				<ul id="ul-imgs">
-					<li><a :href="`/detail?product_id=2`" target="_blank"><img src="images/index/banner1.jpg"></a></li>
-					<li><a  :href="`/detail?product_id=3`" target="_blank"><img src="images/index/banner2.jpg"></a></li>
-					<li><a :href="`/detail?product_id=4`" target="_blank"><img src="images/index/banner3.jpg"></a></li>
-					<li><a :href="`/detail?product_id=5`" target="_blank"><img src="images/index/banner4.jpg"></a></li>
-					<li><a  :href="`/detail?product_id=2`" target="_blank"><img src="images/index/banner1.jpg"></a></li>
+					<li><a :href="`/detail?product_id=2`" target="_blank"><img :src="imgurl+'images/index/banner1.jpg'"></a></li>
+					<li><a  :href="`/detail?product_id=3`" target="_blank"><img :src="imgurl+'images/index/banner2.jpg'"></a></li>
+					<li><a :href="`/detail?product_id=4`" target="_blank"><img :src="imgurl+'images/index/banner3.jpg'"></a></li>
+					<li><a :href="`/detail?product_id=5`" target="_blank"><img :src="imgurl+'images/index/banner4.jpg'"></a></li>
+					<li><a  :href="`/detail?product_id=2`" target="_blank"><img :src="imgurl+'images/index/banner1.jpg'"></a></li>
 				</ul>
 				<ul id="ul-idxs">
 					<li class="active"></li>
@@ -167,21 +167,21 @@
 					<div class="index-two-r03"></div>
 					<div class="index-two-r04"></div>
 				</div>
-				<img src="images/index/r0.png" class="index-two-r00-img">
+				<img :src="imgurl+'images/index/r0.png'" class="index-two-r00-img">
 			</div>
 			<!-- 轮播图下第一区域第一块结束 -->
 			<!-- 轮播图下第一区域第2块开始 -->
 			<div class="index-two-r  wow bounceInUp animated" data-wow-delay="0.6s">
-				<a  :href="`/detail?product_id=8`" target="_blank"><img src="images/index/r2.png" alt=""></a>
+				<a  :href="`/detail?product_id=8`" target="_blank"><img :src="imgurl+'images/index/r2.png'" alt=""></a>
 				</div>
 			<div class="index-two-r wow bounceInDown animated" data-wow-delay="0.9s">
 				<a  :href="`/detail?product_id=9`" target="_blank">
-				<img src="images/index/bl.jpg" alt="">
+				<img :src="imgurl+'images/index/bl.jpg'" alt="">
 				</a>
 				</div>
 			<div class="index-two-r wow  bounceInUp  animated" data-wow-delay="1.2s">
 				<a  :href="`/detail?product_id=34`" target="_blank">
-				<img src="images/index/casn.jpg" alt="">
+				<img :src="imgurl+'images/index/casn.jpg'" alt="">
 				</a>
 				</div>
 			<!-- 轮播图下第一区域第2块结束 -->
@@ -195,7 +195,7 @@
 		<div class="wid">
 			<!-- 2中部banner1-1 -->
 			<home-sbanner 
-			:img_url="sbanner[0]"
+			:img_url="imgurl+sbanner[0]"
 			:go_url="`/detail?product_id=34`"
 			></home-sbanner>
 			<!-- 2中部banner1-2 -->
@@ -205,13 +205,13 @@
 			<!-- 3极致精选2 -->
 			<!-- 3极致精选内容1 -->
 			<home-one
-			:HomeOneImg="mbanner[3]"
+			:HomeOneImg="imgurl+mbanner[3]"
 			state=1
 			></home-one>
 			<!-- 3极致精选内容2 -->
 			<!-- 第一个视频推介1 -->
 			<div class="product-video wow zoomIn animated " data-wow-delay="0.4s">
-				<video autoplay loop src="images/video/1080P童年水果覆盆子树莓.mp4" ></video>
+				<video autoplay loop  :src="imgurl+'images/video/vi.mp4'" ></video>
 			</div>
 			<!-- 第一个视频推介2 -->
 			<!-- 从cart子组件引入1 -->
@@ -232,7 +232,7 @@
 			<!-- 从cart子组件引入2 -->
 			<!-- 4中部banner2-1 -->
 			<home-sbanner 
-			:img_url="sbanner[4]"
+			:img_url="imgurl+sbanner[4]"
 			:go_url="`/detail?product_id=34`"
 			></home-sbanner>
 			<!-- 4中部banner2-2 -->
@@ -242,7 +242,7 @@
 			<!-- 5匠心原创2 -->
 			<!-- 5匠心原创内容1 -->
 			<home-one
-			:HomeOneImg="mbanner[1]"
+			:HomeOneImg="imgurl+mbanner[1]"
 			state=2
 			></home-one>
 			<!-- 5匠心原创内容2 -->
@@ -268,7 +268,7 @@
 			<!-- 从cart子组件引入2 -->
 			<!-- 6中部banner3-1 -->
 			<home-sbanner 
-			:img_url="sbanner[2]"
+			:img_url="imgurl+sbanner[2]"
 			:go_url="`/detail?product_id=34`"
 			></home-sbanner>
 			<!-- 6中部banner3-2 -->
@@ -282,7 +282,7 @@
 			<!-- 7网红爆款开始2 -->
 			<!-- 8中部banner4-1 -->
 			<home-sbanner 
-			:img_url="sbanner[3]"
+			:img_url="imgurl+sbanner[3]"
 			:go_url="`/detail?product_id=34`"
 			></home-sbanner>
 			<!-- 8中部banner4-2 -->

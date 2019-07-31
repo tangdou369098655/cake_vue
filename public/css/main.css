@@ -306,11 +306,11 @@ background-color: #fa9dac;
 }
 #btn-left{
     left:20px;
-    background-image: url("../images/index/left_ar.png");
+    background-image: url("http://localhost:3000/images/index/left_ar.png");
 }
 #btn-right{
     right:20px;
-    background-image: url("../images/index/right_ar.png");
+    background-image: url("http://localhost:3000/images/index/right_ar.png");
 }
 #btn-left:hover,#btn-right:hover{
     background-size: 40px 65px;
@@ -351,31 +351,31 @@ background-color: #fa9dac;
     /* transform:rotate3D(0,1,0,180deg); */
 }
 .index-two-r01:hover{
-    background-image: url("../images/index/index-two-01-1.png");
+    background-image: url("http://localhost:3000/images/index/index-two-01-1.png");
 }
 .index-two-r01{
-    background-image: url("../images/index/index-two-01.png");
+    background-image: url("http://localhost:3000/images/index/index-two-01.png");
     background-size: cover;
 }
 .index-two-r02:hover{
-    background-image: url("../images/index/index-two-02-1.png");
+    background-image: url("http://localhost:3000/images/index/index-two-02-1.png");
 }
 .index-two-r02{
-    background-image: url("../images/index/index-two-02.png");
+    background-image: url("http://localhost:3000/images/index/index-two-02.png");
     background-size: cover;
 }
 .index-two-r03:hover{
-    background-image: url("../images/index/index-two-03-1.png");
+    background-image: url("http://localhost:3000/images/index/index-two-03-1.png");
 }
 .index-two-r03{
-    background-image: url("../images/index/index-two-03.png");
+    background-image: url("http://localhost:3000/images/index/index-two-03.png");
     background-size: cover;
 }
 .index-two-r04:hover{
-    background-image: url("../images/index/index-two-04-1.png");
+    background-image: url("http://localhost:3000/images/index/index-two-04-1.png");
 }
 .index-two-r04{
-    background-image: url("../images/index/index-two-04.png");
+    background-image: url("http://localhost:3000/images/index/index-two-04.png");
     background-size: cover;
 }
 
@@ -451,7 +451,7 @@ background-color: #fa9dac;
     top:5px;
     width:22px;
     height:22px;
-    background: url("../images/index/ndex-five-title-r.png") no-repeat center center;
+    background: url("http://localhost:3000/images/index/ndex-five-title-r.png") no-repeat center center;
     background-size: 22px 22px;
 }
 .index-five-title{

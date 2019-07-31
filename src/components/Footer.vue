@@ -20,11 +20,11 @@
               <a href="#">糖豆豆官网</a>
             </i>
             <div class="flower ">
-                <img src="images/index/flowers/f1.png" alt="">
-                <img src="images/index/flowers/f3.png" alt="">
-                <img src="images/index/flowers/f1.png" alt="">
-              <img src="images/index/flowers/f3.png" alt="">
-              <img src="images/index/flowers/f1.png" alt="">
+                <img  :src="imgurl+'images/index/flowers/f1.png'" alt="">
+                <img  :src="imgurl+'images/index/flowers/f3.png'" alt="">
+                <img  :src="imgurl+'images/index/flowers/f1.png'" alt="">
+              <img  :src="imgurl+'images/index/flowers/f3.png'" alt="">
+              <img  :src="imgurl+'images/index/flowers/f1.png'" alt="">
             </div>
         </div>
       </div>

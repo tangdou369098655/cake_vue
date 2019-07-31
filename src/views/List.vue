@@ -19,7 +19,7 @@
       <div v-for="(item,i) in products" :key="item.id" class="pro-item" >
         <!-- 图片部分1 -->
         <div class="bg">
-        <img :src="pics[i] && pics[i].img" alt="" class="pro-item-img">
+        <img :src="imgurl+(pics[i] && pics[i].img)" alt="" class="pro-item-img">
         <!-- <div class="bg-black"></div> -->
         <span class="sweet">SWEET CAKE</span>
         <b></b>
@@ -33,7 +33,7 @@
           <div class="index-five-tab-tc2 text-center">
             <div class="clearfix pro-get" v-for="(item2, i) in sizes" :key="item2">
               <a  @click="changePrice(item, i, $event)"   href="javascript:;">{{item2}}磅</a>
-              <img src="images/index/seven_7.png" alt="" v-once v-show="i === 0">
+              <img :src="imgurl+'images/index/seven_7.png'" alt="" v-once v-show="i === 0">
             </div>
             </div>
               <div class="index-five-tab-tc3 text-center pro-btn">
@@ -52,9 +52,9 @@
     </div>
     <!-- 页面主体开始2 -->
   </div>
-  <!-- <img src="images/index/bgc02.jpg" alt="" > -->
+  <!-- <img :src="imgurl+'images/index/bgc02.jpg" alt="" > -->
   <div class="pro-bgc-img">
-				<video autoplay loop src="images/video/1080P童年水果覆盆子树莓.mp4"  ></video >
+				<video autoplay loop :src="imgurl+'images/video/vi.mp4'"  ></video >
 			</div>
   </div>
 </template>
@@ -88,13 +88,13 @@ export default {
          if(!this.search) return;
          console.log(this.search);
       this.axios(
-        `http://localhost:3000/find?search_product=${this.search}`
+        `/find?search_product=${this.search}`
       ).then(
         ({data})=>{
           this.products=data.list
           return Promise.all(
             data.list.map(item=>{
-              return axios.get(
+              return this.axios.get(
                 `http://localhost:3000/pics?pid=${item.product_id}`
               ).then(({data})=>data)
             })
