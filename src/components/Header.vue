@@ -46,14 +46,15 @@
 					<button @click="getSearch" class="search-btn bacpink fl font16 white1">搜索</button>
 					<div style="clear:both"></div>
 				</div>
-				<div class="fl userphoto  ">
+				<div class="fr userphoto  " >
 					<!-- <i class="iconfont icon-02 bacpink" aria-hidden="true"></i> -->
 					<template v-if="userInfo.uid">
-						<span>{{userInfo.realname}}</span>
-						<button @click="logout">退出</button>
-						<img :src="userphoto" alt="">
+						<router-link :to="`/portal`" target="_blank" id="myname" >欢迎您！{{userInfo.realname}}</router-link>
+						<button @click="logout" id="goout">退出</button>
+						<!-- 后期可以追加头像 -->
+						<img :src="userphoto" alt=""> 
 					</template>
-					<a href="/login" v-else>登录</a>
+					<a href="/login" v-else style="margin-left:10px;display:inline-block;cursor: pointer;">请登录</a>
 				</div>
 				<div style="clear:both"></div>
 			</div>
@@ -137,5 +138,18 @@ export default {
 }
 </script>
 <style scoped>
-
+#myname{
+	color:rgb(102, 100, 100);
+	display:inline-block;
+	margin-left:10px;
+}
+#myname:hover{
+	color:black;
+}
+#goout{
+color:rgb(15, 15, 15);
+	display:inline-block;
+	margin-left:10px;
+	cursor: pointer;
+}
 </style>

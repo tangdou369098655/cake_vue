@@ -24,8 +24,8 @@ body{
 }
 
 .nav {
-    width: 690px;
-    margin-left: 24px;
+    width: 630px;
+    /* margin-left: 15px; */
 }
 
 header .location:hover {

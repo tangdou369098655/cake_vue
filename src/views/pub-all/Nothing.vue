@@ -1,6 +1,6 @@
 <template>
  <div class="nothing">
-   <img :src="myimg" alt="">
+   <img :src="imgurl+myimg" alt="">
    <p>{{msg}}</p>
 
  </div>

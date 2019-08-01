@@ -21,26 +21,27 @@
 		<!--上半部分  -->
 		<section class="login-section">
 			<!--大图标以及网站介绍-->
-			<div class="login-section_top">
+			<!-- <div class="login-section_top">
 				<a href="#">
 					<img :src="imgurl+'images/index/tdd2.png'">
 				</a>
 				<p>登录糖豆豆蛋糕tangdd.cn-分享新鲜美时美刻！</p>
-			</div>
-			<!--登录框-->
-			<div class="login-login">
+			</div> -->
+			<!--登录框1-->
+			<div class="login-login" style="margin-top:100px;">
 				<div class="login-login1">
 					<p id="login-number">手机号登录</p>
-					<p id="login-username">用户名登录</p>
+					<!-- <p id="login-username">用户名登录</p> -->
 					<div class="login-line1"></div>
-					<div class="login-line2"></div>
+					<!-- <div class="login-line2"></div> -->
 				</div>
 				<div class="login-login2">
 					<input type="text" placeholder="手机号" class="input1" v-model="formData.utelephone">
 					<input type="password" placeholder="密码" class="input1" v-model="formData.upassword">
-					<input type="text" class="input1" v-model="formData.captcha" @keyup.enter="submit">
-					<div style="background:#fff">
-					<img alt="" ref="captcha" @click="updateCaptcha"></div>
+					<input type="text" class="input1"  placeholder="验证码" v-model="formData.captcha" @keyup.enter="submit">
+					<div style="background:#fff;width:350px;height:42px;margin:0 auto 25px auto;border-radius:10px">
+					<img height="100%" ref="captcha" @click="updateCaptcha">
+					</div>
 					<input type="button" value="登录" class="input2" @click="submit">
 				</div>
 				<div class="login-login3">
@@ -57,27 +58,42 @@
 					<a href="#" class="imcolor">注册</a>
 				</div>
 			</div>
+			<!-- 登录框2 -->
+			<!-- 注册框1 -->
+			<div class="Reg_bgc">
+				<div class="login-login Reg" style="margin-top:100px;">
+				<div class="login-login1">
+					<p id="login-number">手机号登录</p>
+					<!-- <p id="login-username">用户名登录</p> -->
+					<div class="login-line1"></div>
+					<!-- <div class="login-line2"></div> -->
+				</div>
+				<div class="login-login2">
+					<input type="text" placeholder="手机号" class="input1" v-model="formData.utelephone">
+					<input type="password" placeholder="密码" class="input1" v-model="formData.upassword">
+					<input type="text" class="input1"  placeholder="验证码" v-model="formData.captcha" @keyup.enter="submit">
+					<div style="background:#fff;width:350px;height:42px;margin:0 auto 25px auto;border-radius:10px">
+					<img height="100%" ref="captcha" @click="updateCaptcha">
+					</div>
+					<input type="button" value="登录" class="input2" @click="submit">
+				</div>
+				<div class="login-login3">
+					<div class="login-login3-radio">
+						<input type="radio" id="auto_reg">
+						<span>
+							<label for="auto_reg">下次自动登录</label>
+						</span>
+					</div>
+					<a href="#" class="imcolor">忘记密码</a>
+					&nbsp;
+					<span class="imcolor">|</span>
+					&nbsp;
+					<a href="#" class="imcolor">注册</a>
+				</div>
+			</div>
+			<!-- 注册框2 -->
+			</div>
 		</section>
-		<!--页面底部-->
-		<footer class="login-footer">
-			<div class="login-footer1 imcolor-black">
-				<div class="comfrom">图片来自糖豆豆tangdd.cn</div>
-				<p class="smallfont">备案号</p>
-				<p class="smallfont">Copyright &copy; 20018-2050 TANGDD 中文 English</p>
-			</div>
-			<div class="login-footer-flower">
-				<i class="fa  fa-spin">
-					<img :src="imgurl+'images/index/flowers/flo7.png'" class="flower1"></i>
-				<i class="fa   fa-spin">
-					<img :src="imgurl+'images/index/flowers/flo14.gif'" class="flower2"></i>
-				<i class="fa  fa-spin">
-					<img :src="imgurl+'images/index/flowers/flo14.gif'" class="flower3"></i>
-				<i class="fa  fa-spin">
-					<img :src="imgurl+'images/index/flowers/flo3.gif'" class="flower4"></i>
-				<i class="fa  fa-spin">
-					<img :src="imgurl+'images/index/flowers/flo7.png'" class="flower5"></i>
-			</div>
-		</footer>
 	</div>
     </div>
 </template>
@@ -299,5 +315,4 @@ width:auto;
 height:20px;
 width:auto;
 }
-
 </style>

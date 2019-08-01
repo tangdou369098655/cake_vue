@@ -6,7 +6,7 @@
 							<ul class="navid-all">
 								<li class="navid-list" v-for="(item,i) in products" :key="i">
                   <router-link :to="`/detail?product_id=${pics[i]&&pics[i].pic_id}`" target="_blank">
-									<img :src="pics[i] && pics[i].img">
+									<img :src="imgurl+(pics[i] && pics[i].img)">
                   </router-link>
 									<p>{{item.index_title}}</p>
 									<p>￥{{item.index_price}}</p>

@@ -139,10 +139,18 @@
         </div>
         <!-- 下单结算2 -->
     </div>
-    <div v-else style="padding-top:200px">
-      购物车内暂时没有商品，登录后将显示您之前加入的商品
-      <a :href="`/login?redirect=${$route.path}`">登录</a>
+    <!-- 未登录状态显示内容1 -->
+    <div v-else class="noproduct">
+      <nothing 
+      msg="购物车内暂时没有商品，登录后将显示您之前加入的商品">
+      </nothing>
+      <div style="width:100%;text-align:center;margin-bottom:20px">
+      <a :href="`/login?redirect=${$route.path}`" 
+        style="display:inline-block; "
+      >点击登录</a>
+      </div>
     </div>
+    <!-- 未登录状态显示内容2 -->
     <!-- 热销新品推荐1 -->
     <hot
     msg="伴手礼精品推荐"
@@ -169,6 +177,7 @@ import hot from './cart-all/hot'
 import cartState from './cart-all/Cart-state'
 import cartDetails from './cart-all/Cart-details'
 import proBottom from './protal-all/Pro-bottom'
+import Nothing from './pub-all/Nothing'
 export default {
 	name:"cart",
 	props:{
@@ -206,7 +215,8 @@ export default {
     "hot":hot,
     "cart-state":cartState,
     "cart-details":cartDetails,
-    "pro-bottom":proBottom
+    "pro-bottom":proBottom,
+    "nothing":Nothing
   },
   created(){
     this.getData()
@@ -378,4 +388,9 @@ margin-right:40px;
   color:white;
 }
 /* 下单结算2 */
+/* 没有登录时候显示1 */
+.noproduct{
+  padding-top:100px;
+}
+/* 没有登录时候显示2 */
 </style>
