@@ -3,7 +3,7 @@
 						<div class="index-left-item-right">
 							<ul>
 								<li v-for="(item,i) in products" :key="item.id"><router-link :to="`/detail?product_id=${pics[i]&&pics[i].pic_id}`" target="_blank">
-									<img :src="pics[i] && pics[i].img" alt="">
+									<img :src="imgurl+(pics[i] && pics[i].img)" alt="">
                 </router-link>
 									<span>{{item.cake_name}}</span>
 								</li>
