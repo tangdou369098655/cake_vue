@@ -28,7 +28,7 @@
 				<p>登录糖豆豆蛋糕tangdd.cn-分享新鲜美时美刻！</p>
 			</div> -->
 				<!--登录框1-->
-				<div class="login-login" style="margin-top:100px;">
+				<div class="login-login" style="margin-top:100px;" v-if="!isLogin">
 					<div class="login-login1">
 						<p id="login-number">手机号登录</p>
 						<!-- <p id="login-username">用户名登录</p> -->
@@ -55,13 +55,13 @@
 						&nbsp;
 						<span class="imcolor">|</span>
 						&nbsp;
-						<a href="#" class="imcolor">注册</a>
+						<a  class="imcolor"  @click="goReg">注册</a>
 					</div>
 				</div>
 				<!-- 登录框2 -->
 			</section>
 			<!-- 注册框1 -->
-			<div class="Reg_bgc">
+			<div class="Reg_bgc"   v-if="isLogin">
 				<div class="login-login Reg" style="margin-top:110px;">
 					<div class="login-login1">
 						<p id="login-number">注册</p>
@@ -70,13 +70,13 @@
 					<div class="login-login2">
 						<input type="text" placeholder="手机号" class="input1 mt_0" v-model="formData1.utelephone" @blur="utelephone">
 						<span class="mymsg">{{reg.phonemsg}}</span>
-						<input type="password1" placeholder="请设置密码" class="input1 mt_0" v-model="formData1.upassword1"  @blur="regpwd1">
+						<input type="password" placeholder="请设置密码" class="input1 mt_0" v-model="formData1.upassword1"  @blur="regpwd1">
 						<span class="mymsg">{{reg.pwd1}}</span>
-						<input type="password2" placeholder="请再次确认密码" class="input1 mt_0" v-model="formData1.upassword2"	@blur="regpwd2">
+						<input type="password" placeholder="请再次确认密码" class="input1 mt_0" v-model="formData1.upassword2"	@blur="regpwd2">
 						<span class="mymsg">{{reg.pwd2}}</span>
 						<input type="text" class="input1" placeholder="请输入验证码" v-model="formData1.captcha" @keyup.enter="register">
 						<!-- 注册图片验证码1 -->
-						<div class="captcha_img">
+						<div class="captcha_img1">
 							<img height="100%" ref="captcha" @click="updateCaptcha">
 						</div>
 						<!-- 注册图片验证码1 -->
@@ -84,9 +84,8 @@
 					</div>
 					<div class="login-login3">
 						<div class="login-login3-radio">
-							<input type="radio" id="auto_reg">
 							<span>
-								<label for="auto_reg">下次自动登录</label>
+								<a  class="imcolor"  @click="goBack">返回登录页面</a>
 							</span>
 						</div>
 					</div>
@@ -100,6 +99,7 @@
 	export default {
 		data() {
 			return {
+        isLogin:false,
 				formData: {},
 				formData1: {},
 				reg: {
@@ -111,8 +111,27 @@
 		},
 		mounted() {
 			this.updateCaptcha()
+			window.addEventListener('imgOut',this.imgOut)
 		},
 		methods: {
+			imgOut(){
+					this.$refs.captcha.src = `${this.imgurl}captcha?t=${Date.now()}`
+				if(this.$refs.captcha.src =""){
+					this.updateCaptcha()
+				}
+				
+			},
+			//点击进入注册页面
+			goReg(){
+				this.updateCaptcha();
+				this.isLogin=true;
+			},
+			//点击返回登录页面
+			goBack(){
+				this.updateCaptcha();
+				this.isLogin=false;
+
+			},
 			//更新验证码
 			updateCaptcha() {
 				this.$refs.captcha.src = `${this.imgurl}captcha?t=${Date.now()}`
@@ -150,6 +169,10 @@
 					if (data == 1) {
 						alert('恭喜您注册成功，请登录！')
 						window.open('/login', Date.now())
+						this.updateCaptcha()
+					}else{
+						alert(data)
+						this.updateCaptcha()
 					}
 				})
 
@@ -157,26 +180,25 @@
 			//注册手机号验证
 			utelephone(){
 				 var utelephone=this.formData1.utelephone;
-            var reg=/^\w{4,8}$/i;
-            if(uname==""){
-                this.msg="用户名不能为空"
-            }else if(!reg.test(uname)){
-                this.msg="用户名4-8位字符"
+            var rega=/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/ig;
+            if(utelephone===""){
+								this.reg.phonemsg="手机号不能为空";
+            }else if(!rega.test(utelephone)){
+                this.reg.phonemsg="手机号格式不正确"
             }else{
-                 this.axios.post("user/check",qs.stringify({uname:this.regname}))
-                .then(result=> {
-                    // console.log(result)
-                    if(result.data.code>0){
-                        this.msg="用户已注册"
+                 this.axios.post("/user/check",this.formData1)
+                .then(({data})=> {
+                    if(data==1){
+									console.log(322)
+                        this.reg.phonemsg="用户已注册"
                     }else{
-                        this.msg="";
+												this.reg.phonemsg="手机号可以使用";
                     }
             })
             }
 			},
 			// 注册密码验证
 			regpwd1() {
-				console.log("2222")
 				var rega = /^\w{6,12}$/
 				var password = this.formData1.upassword1;
 				if (!password) {
@@ -184,7 +206,7 @@
 				} else if (!rega.test(password)) {
 					this.reg.pwd1 = "密码6-12位字符"
 				} else {
-					this.reg.pwd1 = "111"
+					this.reg.pwd1 = "密码可以正常使用"
 				}
 			},
 			// 密码确认
@@ -195,7 +217,7 @@
 				} else if (this.formData1.upassword1 != password2) {
 					this.reg.pwd2 = "密码输入不一致"
 				} else {
-					this.reg.pwd2 = ""
+					this.reg.pwd2 = "密码再次输入正确"
 				}
 			},
 		},
@@ -424,6 +446,7 @@
 	.captcha_img {
 		background: #fff;
 		width: 350px;
+		margin-left:10px;
 		height: 42px;
 		margin-bottom: 25px;
 		border-radius: 10px;
@@ -434,10 +457,19 @@
 	.input2 {
 		cursor: pointer;
 	}
-
+.captcha_img1{
+		background: #fff;
+		width: 350px;
+		height: 42px;
+		margin-bottom: 25px;
+		border-radius: 10px;
+		text-align: center;
+}
 	// 提示信息
 	.login-login2 .mymsg {
 		display: inline-block;
+		height: 25px;
+		color:#ccc;
 		line-height: 25px;
 		padding-left: 20px;
 		font-size: 12px;
