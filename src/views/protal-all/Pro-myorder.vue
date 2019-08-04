@@ -59,10 +59,12 @@
       return {}
     },
     methods: {
-
+      getData(){
+        this.axios('/portal/orderall').then(({data})=>{console.log(data)})
+      }
     },
     created() {
-
+      this.getData()
     }
   }
 </script>

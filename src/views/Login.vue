@@ -19,7 +19,7 @@
 				<hr class="login-nav-hr">
 			</nav>
 			<!--上半部分  -->
-			<section class="login-section">
+			<section class="login-section" v-if="!isLogin">
 				<!--大图标以及网站介绍-->
 				<!-- <div class="login-section_top">
 				<a href="#">
@@ -28,7 +28,7 @@
 				<p>登录糖豆豆蛋糕tangdd.cn-分享新鲜美时美刻！</p>
 			</div> -->
 				<!--登录框1-->
-				<div class="login-login" style="margin-top:100px;" v-if="!isLogin">
+				<div class="login-login" style="margin-top:100px;">
 					<div class="login-login1">
 						<p id="login-number">手机号登录</p>
 						<!-- <p id="login-username">用户名登录</p> -->
@@ -46,7 +46,7 @@
 					</div>
 					<div class="login-login3">
 						<div class="login-login3-radio">
-							<input type="radio" id="auto_reg">
+							<input type="checkbox" id="auto_reg" v-model="formData.isAutoLogin">
 							<span>
 								<label for="auto_reg">下次自动登录</label>
 							</span>
@@ -61,7 +61,7 @@
 				<!-- 登录框2 -->
 			</section>
 			<!-- 注册框1 -->
-			<div class="Reg_bgc"   v-if="isLogin">
+			<div class="Reg_bgc" v-else>
 				<div class="login-login Reg" style="margin-top:110px;">
 					<div class="login-login1">
 						<p id="login-number">注册</p>
@@ -71,7 +71,7 @@
 						<input type="text" placeholder="手机号" class="input1 mt_0" v-model="formData1.utelephone" @blur="utelephone">
 						<span class="mymsg">{{reg.phonemsg}}</span>
 						<input type="password" placeholder="请设置密码" class="input1 mt_0" v-model="formData1.upassword1"  @blur="regpwd1">
-						<span class="mymsg">{{reg.pwd1}}</span>
+						<span class="mymsg" :class="regClass.pwd1">{{reg.pwd1}}</span>
 						<input type="password" placeholder="请再次确认密码" class="input1 mt_0" v-model="formData1.upassword2"	@blur="regpwd2">
 						<span class="mymsg">{{reg.pwd2}}</span>
 						<input type="text" class="input1" placeholder="请输入验证码" v-model="formData1.captcha" @keyup.enter="register">
@@ -106,31 +106,27 @@
 					phonemsg: "",
 					pwd1: "",
 					pwd2: ""
+				},
+				regClass: {
+					phonemsg: "",
+					pwd1: "",
+					pwd2: ""
 				}
 			}
 		},
 		mounted() {
 			this.updateCaptcha()
-			window.addEventListener('imgOut',this.imgOut)
 		},
 		methods: {
-			imgOut(){
-					this.$refs.captcha.src = `${this.imgurl}captcha?t=${Date.now()}`
-				if(this.$refs.captcha.src =""){
-					this.updateCaptcha()
-				}
-				
-			},
 			//点击进入注册页面
 			goReg(){
-				this.updateCaptcha();
 				this.isLogin=true;
+				this.$nextTick(() => this.updateCaptcha())
 			},
 			//点击返回登录页面
 			goBack(){
-				this.updateCaptcha();
 				this.isLogin=false;
-
+				this.$nextTick(() => this.updateCaptcha())
 			},
 			//更新验证码
 			updateCaptcha() {
@@ -168,8 +164,7 @@
 				}) => {
 					if (data == 1) {
 						alert('恭喜您注册成功，请登录！')
-						window.open('/login', Date.now())
-						this.updateCaptcha()
+						this.goBack()
 					}else{
 						alert(data)
 						this.updateCaptcha()
@@ -189,10 +184,9 @@
                  this.axios.post("/user/check",this.formData1)
                 .then(({data})=> {
                     if(data==1){
-									console.log(322)
                         this.reg.phonemsg="用户已注册"
                     }else{
-												this.reg.phonemsg="手机号可以使用";
+							this.reg.phonemsg="手机号可以使用";
                     }
             })
             }
@@ -203,10 +197,13 @@
 				var password = this.formData1.upassword1;
 				if (!password) {
 					this.reg.pwd1 = "密码不能为空";
+					this.regClass.pwd1 = 'error'
 				} else if (!rega.test(password)) {
 					this.reg.pwd1 = "密码6-12位字符"
+					this.regClass.pwd1 = 'info'
 				} else {
 					this.reg.pwd1 = "密码可以正常使用"
+					this.regClass.pwd1 = 'success'
 				}
 			},
 			// 密码确认
@@ -473,6 +470,15 @@
 		line-height: 25px;
 		padding-left: 20px;
 		font-size: 12px;
+		&.error {
+			color: red;
+		}
+		&.success {
+			color: green;
+		}
+		&.info {
+			color: blue;
+		}
 	}
 
 	.login-login .mt_0 {

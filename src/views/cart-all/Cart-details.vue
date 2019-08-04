@@ -4,34 +4,34 @@
         <div class="details-img">
           <img :src="imgurl+'images/index/兔小萌.png'" alt="">
           <div>
-            <p>极地牛乳</p>
+            <p>{{data.cake_name}}</p>
             <p></p>
-            <p>TANG CAKE[经典系列]</p>
+            <p>TANG CAKE[{{data.product_kinds_name}}]</p>
           </div>
         </div>
         <div class="details-size">
-          <p>1.2磅</p>
+          <p>{{sizes[data.sizes]}}磅</p>
           <i>标配</i>
           <span>餐具套装1套</span>
         </div>
         <div class="details-price">
-          <p>218.00</p>
+          <p>{{data.price}}</p>
         </div>
         <div class="details-count">
-          <i class="icon iconfont icon-jianhao1"></i>
+          <i class="icon iconfont icon-jianhao1" @click="changeCount(-1)"></i>
           <b></b>
-          <input type="text" value=1>
+          <input type="text" v-model="data.count">
           <b></b>
-          <i class="icon iconfont icon-jiahao1"></i>
+          <i class="icon iconfont icon-jiahao1" @click="changeCount(1)"></i>
         </div>
         <div class="details-discount">
-          <p>无优惠</p>
+          <p>{{data.others}}</p>
         </div>
         <div class="details-total">
-          <p>￥ 218.00</p>
+          <p>￥ {{(data.price*data.count).toFixed(2)}}</p>
         </div>
         <div class="details-delete">
-          <i class="icon iconfont icon-chahao1"></i>
+          <i class="icon iconfont icon-chahao1" @click="deleteItem"></i>
         </div>
       </div>
       <!-- 订单内容模块2 -->
@@ -40,12 +40,24 @@
 export default {
   name:"Home-stitle",
   props:{
-    
+    data:{
+    }
   },
   data (){
-    return{}
+    return{
+        sizes: ['1.2', '2.2', '3.2', '7.2'],
+    }
   },
   methods:{
+    changeCount(n){
+      let count = Math.max(this.data.count + n, 1)
+      this.axios.post('/cart/update',{c_id:this.data.c_id,count}).then(
+        ()=>{this.data.count=count}
+      )
+    },
+    deleteItem(){
+      this.$emit('del')
+    }
 
   },created(){
     
