@@ -57,3 +57,5 @@ if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
 
 
 //点击按钮加入购物车2
+
+
