@@ -1,6 +1,6 @@
 <template>
 			<li class="nav-item " >
-						<a href="#">{{msg}}</a>
+						<a :href="`/list?search=${kind}`">{{msg}}</a>
 							<!-- 隐藏部分1 -->
 						<div class="navid">
 							<ul class="navid-all">
@@ -23,7 +23,8 @@ export default {
 	name:"hot",
 	props:{
     state:{default:10},
-    msg:{default:"下午茶"}
+    msg:{default:"下午茶"},
+    kind:{default:"蛋糕"}
 	},
   data(){
     return{

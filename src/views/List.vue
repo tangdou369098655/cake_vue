@@ -10,16 +10,16 @@
     </div>
     <!-- 面包屑导航2 -->
     <!-- 需要调整部分1 -->
-    <nothing v-show="products.length<1"></nothing>
+    <nothing v-show="noProduct"></nothing>
 <!-- <img :src="imgurl+'images/index/极地牛乳.png'" alt=""> -->
     <!-- 主体内容开始1 -->
     <div class="pro-all clearfix">
-      <!-- 四个一组第一组1 -->
+      <!-- 一组第一组1 -->
       <!-- 产品1  -->
-      <div v-for="(item,i) in products" :key="item.id" class="pro-item" >
+      <div v-for="(item) in products" :key="item.id" class="pro-item" >
         <!-- 图片部分1 -->
         <div class="bg">
-        <img :src="imgurl+(pics[i] && pics[i].img)" alt="" class="pro-item-img">
+        <img :src="imgurl+item.img" alt="" class="pro-item-img">
         <!-- <div class="bg-black"></div> -->
         <span class="sweet">SWEET CAKE</span>
         <b></b>
@@ -68,6 +68,7 @@ export default {
   },
   data (){
     return{
+      noProduct:false,
       products:[],
       pics:[],
       sizes: ['1.2', '2.2', '3.2', '7.2'],
@@ -92,19 +93,10 @@ export default {
       ).then(
         ({data})=>{
           this.products=data.list
-          return Promise.all(
-            data.list.map(item=>{
-              return this.axios.get(
-                `http://localhost:3000/pics?pid=${item.product_id}`
-              ).then(({data})=>data)
-            })
-          )
+          this.products=data.list.map(_ => _.item[0])
+          if(data.list=[]){this.noProduct=true}
         }
-      ).then(values=>{
-        this.pics=values.map(_ => _.pics[0])
-        console.log(this.pics)
-        console.log(this.products)
-      })
+      )
     }
   },created(){
     this.getData()
@@ -134,6 +126,7 @@ export default {
 .pro-bgc{
   z-index: 0;
   position: relative;
+  min-height:600px;
 }
 /* 产品1 */
 .pro-item{
