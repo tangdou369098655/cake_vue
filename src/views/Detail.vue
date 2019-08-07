@@ -13,12 +13,12 @@
     <div class="p-main clearfix">
       <!-- 第一部分左边主图1 -->
       <div class="p-main-left">
-        <div id="lgImg"><img :src="imgurl+pics.img_5" width="100%"></div>
+        <div id="lgImg"><img :src="imgurl+pics.img_5" width="100%" ref="bimg"></div>
         <div class="left-img" id="left_img">
-          <img :src="imgurl+pics.img_5" alt="">
-          <img :src="imgurl+pics.img_6" alt="">
-          <img :src="imgurl+pics.img_7" alt="">
-          <img :src="imgurl+pics.img_8" alt="">
+          <img :src="imgurl+pics.img_5" alt="" @mouseenter="changeImg">
+          <img :src="imgurl+pics.img_6" alt="" @mouseenter="changeImg">
+          <img :src="imgurl+pics.img_7" alt="" @mouseenter="changeImg">
+          <img :src="imgurl+pics.img_8" alt="" @mouseenter="changeImg">
         </div>
       </div>
       <!-- 第一部分左边主图2 -->
@@ -26,11 +26,11 @@
       <div class="p-main-right">
         <h1 id="cake_name">{{products.cake_name}}<img :src="imgurl+'images/index/icon-new-1.png'" alt=""></h1>
         <h4 id="advertisement">{{products.advertisement}}</h4>
-        <h2 id="price">￥{{products.price}}</h2>
+        <h2 id="price">￥{{(products.price * (products.psize||1)).toFixed(2)}}</h2>
         <span class="f-gray">甜度:<img :src="imgurl+'images/index/tian2.png'" alt=""></span>
         <div class="cweight" id="specss">
-          <div v-for="(item , i) in sizes" :key="item" @click="changePrice(i)">{{item}}磅
-            <i class="iconfont icon-right-1" v-if="i===curIndex"></i>
+          <div v-for="(item , i) in sizes" :key="item" @click="changePrice(products,i,$event)">{{item}}磅
+            <i class="iconfont icon-right-1" v-if="i===curIndex || 0"></i>
           </div>
           <!-- <div>2.0磅</div>
           <div>3.0磅</div>
@@ -45,14 +45,14 @@
         </div>
         <hr>
         <div class="count">
-          <h3 class="iconfont icon-jianhaoshouqi"></h3>
+          <h3 class="iconfont icon-jianhaoshouqi" @click="changeCount(-1)"></h3>
           <div></div>
-          <h3><input type="text" value="1" id="p_count"></h3>
+          <h3><input type="text" v-model="myCount" id="p_count"></h3>
           <div></div>
-          <h3 class="iconfont icon-jiahaozhankai"></h3>
+          <h3 class="iconfont icon-jiahaozhankai" @click="changeCount(1)"></h3>
         </div>
         <div class="buy">
-          <span>加入购物车</span>
+          <span @click="addCartCount">加入购物车</span>
           <span>立即购买</span>
         </div>
       </div>
@@ -101,7 +101,13 @@
         <img :src="imgurl+'images/index/banner50.gif'">
         <!-- 需要从数据库调取的图片1 -->
         <div id="lg_img">
-
+          <img :src="imgurl+pics.img_1" alt="">
+          <img :src="imgurl+pics.img_2" alt="">
+          <img :src="imgurl+pics.img_3" alt="">
+          <img :src="imgurl+pics.img_5" alt="">
+          <img :src="imgurl+pics.img_6" alt="">
+          <img :src="imgurl+pics.img_7" alt="">
+          <img :src="imgurl+pics.img_8" alt="">
         </div>
         <!-- 需要从数据库调取的图片2 -->
         <img :src="imgurl+'images/index/size.jpg'">
@@ -188,6 +194,7 @@
     data() {
       const sizes = ['1.2', '2.2', '3.2', '7.2']
       return {
+        myCount:1,
 			products:[],
 			pics:[],
         price1: 0,
@@ -200,13 +207,31 @@
       }
     },
     computed: {
+      addCartCount(){
+        let formdata={}
+        // formdata.user_id=this.$store.state.userinfo.uid
+        formdata.p_id=this.products.product_id
+        formdata.sizes=this.products.sizes
+        formdata.product_kinds_name=this.products.product_kinds_name
+        formdata.cake_name=this.products.cake_name
+        formdata.count=this.myCount
+        this.axios.post('/cart/add',formdata).then((data)=>{console.log(data)})
+      },
+
       price2() {
         return (this.psizes[this.curIndex] * this.price1).toFixed(2)
       }
     },
     methods: {
-      changePrice(i) {
+      changeImg(e){
+        this.$refs.bimg.src=e.target.src
+      },
+      changeCount(n){
+        this.myCount=Math.max(this.myCount+n,1)
+      },
+      changePrice(item,i,$event) {
         this.curIndex = i
+        this.$set(item,'psize',this.psizes[i])
       },
       getData(){
         this.product_id=this.$route.query.product_id;
@@ -435,6 +460,7 @@
     position: absolute;
     left: 50px;
     top: 36px;
+    background:#fa9dac;
     transition: all .6s linear;
     /* height:50px; */
     display: inline-block;

@@ -19,7 +19,8 @@
       <div v-for="(item) in products" :key="item.id" class="pro-item" >
         <!-- 图片部分1 -->
         <div class="bg">
-        <img :src="imgurl+item.img" alt="" class="pro-item-img">
+          <router-link :to="`/detail?product_id=${item.product_id}`" target="_blank" class="pro-item-img">
+        <img :src="imgurl+item.img" alt="" class="pro-item-img"></router-link>
         <!-- <div class="bg-black"></div> -->
         <span class="sweet">SWEET CAKE</span>
         <b></b>
@@ -84,19 +85,18 @@ export default {
 			this.$set(item, 'psize', this.psizes[i]) //给此item增加属性绑定新数组元素
 		},
        getData() {
-        //  var {search1}=this.$route.query;
          this.search=this.$route.query.search;
          if(!this.search) return;
-         console.log(this.search);
       this.axios(
         `/find?search_product=${this.search}`
       ).then(
         ({data})=>{
-          this.products=data.list
-          this.products=data.list.map(_ => _.item[0])
-          if(data.list=[]){this.noProduct=true}
+          return data
         }
-      )
+      ).then((data)=>{
+        this.products=data.list
+        if(this.products===[]){this.noProduct=true}
+         })
     }
   },created(){
     this.getData()
@@ -126,7 +126,7 @@ export default {
 .pro-bgc{
   z-index: 0;
   position: relative;
-  min-height:600px;
+  min-height:800px;
 }
 /* 产品1 */
 .pro-item{
@@ -203,11 +203,12 @@ color:#fa9dac;
     right:0px;
     opacity: 1;
   }
-  .bg img{
+  .bg img,a.pro-item-img{
     top:50px;
     position:absolute;
     transition:all 0.5s linear;
   }
+  .bg img{top:0px;}
   .bg:hover img{
     transform:scale(1.2)
   } 

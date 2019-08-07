@@ -10,7 +10,7 @@
 					<div class="index-one-left-name">
 						<!-- 侧边栏小标题部分开始 -->
 						<div class="index-left-item ">
-							<a href="#">
+							<a :href="`/list?search=精选`">
 								<div class="open-item">
 									<img :src="imgurl+'images/index/one_1.png'">
 									<p>极致精选</p>
@@ -24,7 +24,7 @@
 						<!-- 侧边栏小标题部分结束 -->
 						<!-- 侧边栏小标题部分开始 -->
 						<div class="index-left-item">
-							<a href="#">
+							<a :href="`/list?search=原创`">
 								<div>
 									<img :src="imgurl+'images/index/one_2.png'">
 									<p>匠心原创</p>
@@ -38,7 +38,7 @@
 						<!-- 侧边栏小标题部分结束 -->
 						<!-- 侧边栏小标题部分开始 -->
 						<div class="index-left-item">
-							<a href="#">
+							<a :href="`/list?search=西点`">
 								<div>
 									<img :src="imgurl+'images/index/one_3.png'">
 									<p>优雅西点</p>
@@ -52,7 +52,7 @@
 						<!-- 侧边栏小标题部分结束 -->
 						<!-- 侧边栏小标题部分开始 -->
 						<div class="index-left-item">
-							<a href="#">
+							<a :href="`/list?search=乳品`">
 								<div>
 									<img :src="imgurl+'images/index/one_4.png'">
 									<p>乳品系列</p>
@@ -66,7 +66,7 @@
 						<!-- 侧边栏小标题部分结束 -->
 						<!-- 侧边栏小标题部分开始 -->
 						<div class="index-left-item">
-							<a href="#">
+							<a :href="`/list?search=蛋糕`">
 								<div>
 									<img :src="imgurl+'images/index/one_5.png'">
 									<p>其他系列</p>
@@ -89,7 +89,7 @@
 					<div class="index-one-left-name">
 						<!-- 侧边栏小标题部分开始 -->
 						<div class="index-left-item ">
-							<a href="#">
+							<a :href="`/list?search=健康`">
 								<div>
 									<img :src="imgurl+'images/index/cake/f7.png'">
 									<p>茶歇活动</p>
@@ -103,7 +103,7 @@
 						<!-- 侧边栏小标题部分结束 -->
 						<!-- 侧边栏小标题部分开始 -->
 						<div class="index-left-item">
-							<a href="#">
+							<a :href="`/list?search=蛋糕`">
 								<div>
 									<img :src="imgurl+'images/index/cake/f1.png'">
 									<p>节日特供</p>
@@ -153,10 +153,10 @@
 				<!-- 轮播图下第一区域第一块开始 -->
 				<div class="index-two-r1 wow bounceInDown " data-wow-delay="0.4s">
 					<div class="index-two-r0">
-						<div class="index-two-r01"></div>
-						<div class="index-two-r02"></div>
-						<div class="index-two-r03"></div>
-						<div class="index-two-r04"></div>
+						<div class="index-two-r01"><a :href="`http://www.tangdd.cn`"></a></div>
+						<div class="index-two-r02"><a :href="`/list?search=配送`"></a></div>
+						<div class="index-two-r03"><a :href="`/list?search=极致`"></a></div>
+						<div class="index-two-r04"><a :href="`/list?search=蛋糕`"></a></div>
 					</div>
 					<img :src="imgurl+'images/index/r0.png'" class="index-two-r00-img">
 				</div>
@@ -189,7 +189,7 @@
 				<!-- 2中部banner1-2 -->
 
 				<!-- 3极致精选1 -->
-				<home-stitle msg="极致·精选"></home-stitle>
+				<home-stitle msg="极致·精选" myurl='/list?search=极致'></home-stitle>
 				<!-- 3极致精选2 -->
 				<!-- 3极致精选内容1 -->
 				<home-one :HomeOneImg="imgurl+mbanner[3]" state=1></home-one>
@@ -212,7 +212,7 @@
 				<!-- 4中部banner2-2 -->
 				<!-- 5匠心原创开始 -->
 				<!-- 5匠心原创1 -->
-				<home-stitle msg="匠心·原创"></home-stitle>
+				<home-stitle msg="匠心·原创" myurl='/list?search=原创'></home-stitle>
 				<!-- 5匠心原创2 -->
 				<!-- 5匠心原创内容1 -->
 				<home-one :HomeOneImg="imgurl+mbanner[1]" state=2></home-one>
@@ -234,7 +234,7 @@
 				<!-- 6中部banner3-2 -->
 				<!-- 7网红爆款开始1 -->
 				<!-- 7网红爆款1 -->
-				<home-stitle msg="网红·爆款"></home-stitle>
+				<home-stitle msg="网红·爆款"  myurl='/list?search=时尚'></home-stitle>
 				<!-- 7网红爆款2 -->
 				<!-- 7网红爆款内容区域1 -->
 				<home-two state=10></home-two>
@@ -245,7 +245,7 @@
 				<!-- 8中部banner4-2 -->
 				<!-- 9猜您喜欢开始1 -->
 				<!-- 9猜您喜欢标题部分1 -->
-				<home-stitle msg="猜您·喜欢"></home-stitle>
+				<home-stitle msg="猜您·喜欢" myurl='/list?search=高品质'></home-stitle>
 				<!-- 9猜您喜欢标题部分2 -->
 				<!-- 9猜您喜欢内容区域1 -->
 				<home-two state=11></home-two>
@@ -481,5 +481,10 @@
 		align-items: center;
 		justify-content: center;
 		background-color: rgba(255, 255, 255, .7);
+	}
+	.index-two-r0 a{
+		display:inline-block;
+		width:100%;
+		height:100%;
 	}
 </style>

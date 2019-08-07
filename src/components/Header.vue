@@ -21,19 +21,19 @@
 				</div>
 				<ul>
 					<!-- 导航栏标题部分1 -->
-					<header-title msg="下午茶" state=10></header-title>
+					<header-title msg="下午茶" state=10 kind='草莓'></header-title>
 					<!-- 导航栏标题部分2 -->
 					<!-- 导航栏标题部分1 -->
-					<header-title msg="送亲子" state=11></header-title>
+					<header-title msg="送亲子" state=11 kind='西点'></header-title>
 					<!-- 导航栏标题部分2 -->
 					<!-- 导航栏标题部分1 -->
-					<header-title msg="送恋人" state=12></header-title>
+					<header-title msg="送恋人" state=12 kind='高品质'></header-title>
 					<!-- 导航栏标题部分2 -->
 					<!-- 导航栏标题部分1 -->
-					<header-title msg="送长辈" state=13></header-title>
+					<header-title msg="送长辈" state=13 kind='健康'></header-title>
 					<!-- 导航栏标题部分2 -->
 					<!-- 导航栏标题部分1 -->
-					<header-title msg="活动产品" state=14></header-title>
+					<header-title msg="活动产品" state=14 kind='新疆'></header-title>
 					<!-- 导航栏标题部分2 -->
 					<div style="clear:both"></div>
 				</ul>
