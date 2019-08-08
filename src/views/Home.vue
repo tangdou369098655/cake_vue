@@ -1,6 +1,7 @@
 <template>
-	<div class="loading" v-if="loading">loading...</div>
-	<div v-else>
+	<!-- <div class="loading" v-if="loading">loading...</div> -->
+	<!-- <div v-else> -->
+		<div >
 		<!-- 主体开始 -->
 		<section class="wid index-one">
 			<div>

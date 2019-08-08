@@ -67,14 +67,20 @@ export default {
 		psizes: [1, 1.5, 2, 3.5],
 		price:0,
 		size:'',
+		sizeIndex:0
     }
 	},
 	methods:{
 		//加入购物车事件
 		addCart(item){
 			this.price=(item.index_price * (item.psize || 1)).toFixed(2);
-			console.log(this.price);
-			console.log(this.size);
+			let formdata={}
+        formdata.p_id=item.car_id
+        formdata.sizes=this.sizeIndex
+        formdata.cake_name=item.index_title
+        formdata.count=1
+        formdata.price=item.index_price
+        this.axios.post('/cart/adds',formdata).then((data)=>{console.log(data)})
 		},
 		// 购物车点击事件,点击后出现隐藏框
 		tabCarClick(event) {
@@ -89,6 +95,7 @@ export default {
 			$(event.target).parent().siblings('div').children("img").hide()
 			this.$set(item, 'psize', this.psizes[i]) //给此item增加属性绑定新数组元素
 			this.size=this.sizes[i]
+			this.sizeIndex=i;
 		},
 		createTarget() {
 			return Math.random()

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import layui from 'layui-src'
 //5:引入axios.js文件
 import './axios'
 //6.引入vuex
@@ -13,8 +14,7 @@ import {WOW} from 'wowjs';
 new WOW({live: false}).init();
 import '../public/css/detail.css'
 Vue.prototype.imgurl='http://localhost:3000/'
-
-
+  
 //9: 将store保存vue实例中
 Vue.config.productionTip = false
 new Vue({

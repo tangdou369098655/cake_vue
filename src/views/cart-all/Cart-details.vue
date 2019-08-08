@@ -2,7 +2,7 @@
  <!-- 订单内容模块1 -->
       <div class="order-details">
         <div class="details-img">
-          <img :src="imgurl+'images/index/兔小萌.png'" alt="">
+          <img :src="imgurl+'images/index/'+data.cake_name+'.png'" alt="">
           <div>
             <p>{{data.cake_name}}</p>
             <p></p>

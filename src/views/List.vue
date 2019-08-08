@@ -38,7 +38,7 @@
             </div>
             </div>
               <div class="index-five-tab-tc3 text-center pro-btn">
-            <a href="#" id="list-add">加入购物车</a>
+            <a  @click="addCart(item)" id="list-add">加入购物车</a>
             <a href="#" id="list-buy">立即购买</a>
           </div>
           <!-- <i class="index-five-tab-tc4 iconfont icon-chahao"></i> -->
@@ -69,6 +69,7 @@ export default {
   },
   data (){
     return{
+			sizeIndex:0,
       noProduct:false,
       products:[],
       pics:[],
@@ -78,11 +79,22 @@ export default {
     }
   },
   methods:{
+		//加入购物车事件
+		addCart(item){
+			let formdata={}
+        formdata.p_id=item.product_id
+        formdata.sizes=this.sizeIndex
+        formdata.cake_name=item.cake_name
+        formdata.count=1
+        formdata.price=item.price
+        this.axios.post('/cart/adds',formdata).then((data)=>{console.log(data)})
+		},
     // 点击尺寸增加选中小框对号同时改变价格
 		changePrice(item, i, event) {
 			$(event.target).siblings('img').show()
 			$(event.target).parent().siblings('div').children("img").hide()
-			this.$set(item, 'psize', this.psizes[i]) //给此item增加属性绑定新数组元素
+      this.$set(item, 'psize', this.psizes[i]) //给此item增加属性绑定新数组元素
+      this.sizeIndex=i;
 		},
        getData() {
          this.search=this.$route.query.search;

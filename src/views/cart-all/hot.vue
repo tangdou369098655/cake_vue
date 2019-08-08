@@ -16,7 +16,7 @@
             <i>[{{kinds}}系列]{{item.index_title}}</i>
             <p>1.2磅</p>
             <p>￥{{item.index_price}}/盒</p>
-            <span>加入购物车</span>
+            <span  @click="addCart(item,i)">加入购物车</span>
         </div>
       </div>
       </div>
@@ -41,6 +41,17 @@ export default {
       sizes: ['1.2', '2.2', '3.2', '7.2'],
     }
   }, methods:{
+		//加入购物车事件
+		addCart(item,i){
+			this.price=(item.index_price * (item.psize || 1)).toFixed(2);
+			let formdata={}
+        formdata.p_id=item.car_id
+        formdata.sizes=i
+        formdata.cake_name=item.index_title
+        formdata.count=1
+        formdata.price=item.index_price
+        this.axios.post('/cart/adds',formdata).then((data)=>{console.log(data)})
+		},
     getData() {
       this.axios.get(
         `/index`,{params:{status:this.state}}

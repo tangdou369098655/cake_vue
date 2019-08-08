@@ -34,7 +34,7 @@
 							</div>
 						</div>
 						<div class="index-five-tab-tc3">
-							<a href="#">加入购物车</a>
+							<a  @click="addCart(item)">加入购物车</a>
 							<a href="#">立即购买</a>
 						</div>
 						<i class="index-five-tab-tc4 iconfont icon-chahao" @click="closeCart($event,i)"></i>
@@ -58,6 +58,7 @@ export default {
   },
   data (){
     return{
+			sizeIndex:0,
 			products:[],
 			pics:[],
 			sizes: ['1.2', '2.2', '3.2', '7.2'],
@@ -65,6 +66,16 @@ export default {
 		}
   },
   methods:{
+		//加入购物车事件
+		addCart(item){
+			let formdata={}
+        formdata.p_id=item.car_id
+        formdata.sizes=this.sizeIndex
+        formdata.cake_name=item.index_title
+        formdata.count=1
+        formdata.price=item.index_price
+        this.axios.post('/cart/adds',formdata).then((data)=>{console.log(data)})
+		},
 		// 购物车隐藏部分右上角有一个小叉号，点击关闭隐藏部分
 		closeCart($event,i){
 			this.$refs.hiddenC[i].style="display:none"
@@ -79,6 +90,7 @@ export default {
 			$(event.target).siblings('img').show()
 			$(event.target).parent().siblings('div').children("img").hide()
 			this.$set(item,'psize',this.psizes[i]) //给此item增加属性绑定新数组元素
+			this.sizeIndex=i;
 		},
 		getData(){
 			this.axios.get(

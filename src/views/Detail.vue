@@ -207,22 +207,23 @@
       }
     },
     computed: {
-      addCartCount(){
-        let formdata={}
-        // formdata.user_id=this.$store.state.userinfo.uid
-        formdata.p_id=this.products.product_id
-        formdata.sizes=this.products.sizes
-        formdata.product_kinds_name=this.products.product_kinds_name
-        formdata.cake_name=this.products.cake_name
-        formdata.count=this.myCount
-        this.axios.post('/cart/add',formdata).then((data)=>{console.log(data)})
-      },
+      
 
       price2() {
         return (this.psizes[this.curIndex] * this.price1).toFixed(2)
       }
     },
     methods: {
+      addCartCount(){
+        let formdata={}
+        formdata.p_id=this.products.product_id
+        formdata.sizes=this.curIndex
+        formdata.product_kinds_name=this.products.product_kinds_name
+        formdata.cake_name=this.products.cake_name
+        formdata.count=this.myCount
+        formdata.price=this.products.price
+        this.axios.post('/cart/adds',formdata).then((data)=>{console.log(data)})
+      },
       changeImg(e){
         this.$refs.bimg.src=e.target.src
       },
