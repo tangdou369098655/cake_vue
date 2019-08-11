@@ -4,10 +4,9 @@
     <div class="myorder">
       <ul class="myorder-top clearfix">
         <li class="top-one">我的订单</li>
-        <li class="top-active"  @click="getData">全部订单</li>
-        <li @click="getData1(2)">未收货</li>
-        <li @click="getData1(3)">已收货</li>
-        <li @click="getData1(4)">未评价</li>
+        <li v-for="item in tabs" :key="item.value" 
+          :class="{'top-active': item.value === state}"
+          @click="getData(item.value)">{{item.label}}</li>
       </ul>
       <ul class="myorder-title clearfix bgcy">
         <li>商品信息</li>
@@ -72,22 +71,35 @@ import Nothing from '../pub-all/Nothing'
         },
         // stateCode:0,
       sizes: ['1.2', '2.2', '3.2', '7.2'],
-      mystatus:['未付款','未发货','未收货','已签收','未评价']
+      mystatus:['未付款','未发货','未收货','已签收','未评价'],
+      tabs: [
+        { value: 1, label: '全部订单' },
+        { value: 2, label: '未收货' },
+        { value: 3, label: '已收货' },
+        { value: 4, label: '未评价' }
+      ]
         
       }
     },
+    computed: {
+      state() {
+        return +(this.$route.params.state || 1)
+      }
+    },
     methods: {
-      getData(){
-        		$('.myorder-top li').click(function(){
-			console.log(111)
-			$('.myorder-top li').removeClass('top-active');
-				$(this).addClass('top-active')
-		})
+      getData(state) {
+        this.$router.replace({
+          name: this.$route.name,
+          params: { state }
+        });
+        +state === 1 ? this.getDataAll() : this.getData1(state)
+      },
+      getDataAll(){
         this.axios('/portal/orderall').then(({data})=>{
           if(data=="0"){this.noOrder=true}else{
             this.noOrder=false
-          this.mydata.detail=this.mydata.detail.concat(data.data.detail)
-          this.mydata.order=this.mydata.order.concat(data.data.order)
+          this.mydata.detail=data.data.detail
+          this.mydata.order=Array.isArray(data.data.order) ? data.data.order : [data.data.order]
           console.log(this.mydata.detail)
           console.log(this.mydata.order)}
         })
@@ -105,28 +117,10 @@ import Nothing from '../pub-all/Nothing'
         })
       }
     },
-    created() {
-      this.getData()
-      // 点击高亮
-
-
-    },
     mounted(){
-      $('.myorder-top li').click(function(){
-          $('.myorder-top li').removeClass('top-active');
-          $(this).addClass('top-active');
-      })
+      this.getData(this.state)
     }
-
-  
-
-
   }
-
-
- 
-
-
 </script>
 <style scoped>
 .no-order{

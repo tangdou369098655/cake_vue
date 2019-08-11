@@ -21,9 +21,7 @@
         </div>
         <!-- 订单标题模块2 -->
         <!-- 订单内容模块1 -->
-        <cart-details v-for="item in data" :key="item.c_id"
-        :data="item" @del="delItem(item)"
-        ></cart-details>
+        <cart-details v-for="item in data" :key="item.c_id" :data="item" @del="delItem(item)"></cart-details>
         <!-- 订单内容模块2 -->
       </div>
       <!-- 订单信息2 -->
@@ -95,14 +93,14 @@
       return {
         products: [],
         pics: [],
-        data:[]
+        data: []
       }
     },
     computed: {
       total() {
         return this.data.reduce((total, item) => total + item.price * item.count, 0).toFixed(2)
       },
-      countTotal(){
+      countTotal() {
         return this.data.reduce((total, item) => total + item.count, 0)
       }
     },
@@ -111,11 +109,15 @@
         this.axios('/cart/mycart').then(({
           data
         }) => {
-          this.data=data.data
+          this.data = data.data
         })
       },
       delItem(item) {
-        this.axios.post('/cart/del',{cids: [item.c_id]}).then(({data}) => {
+        this.axios.post('/cart/del', {
+          cids: [item.c_id]
+        }).then(({
+          data
+        }) => {
           this.data.splice(this.data.indexOf(item), 1)
         })
       }

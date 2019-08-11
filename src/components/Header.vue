@@ -62,7 +62,7 @@
 		</div>
 		<!-- 右侧固定导航栏1 -->
 		<div class="right-nav">
-			<div class="nav-ritem "><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=993654813&site=qq&menu=yes"><img border="0"  :src="imgurl+'images/index/qq.png'" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+			<div class="nav-ritem "><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=369098655&site=qq&menu=yes"><img border="0"  :src="imgurl+'images/index/qq.png'" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
 				<!-- <img :src="imgurl+'images/index/qq.png'" alt=""> -->
 				<p>QQ咨询</p>
 			</div>

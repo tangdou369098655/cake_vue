@@ -65,7 +65,8 @@ export default new Router({
               component: proMydetails
             },
             {
-              path:'my-order',
+              path:'my-order/:state?',
+              name: 'myOrder',
               component:proMyOrder
             },
             {
