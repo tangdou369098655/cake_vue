@@ -457,8 +457,8 @@
 
 		},
 		created() {
-			this.getData(),
-				this.wow()
+			this.getData()
+			this.wow()
 		},
 		mounted() {
 

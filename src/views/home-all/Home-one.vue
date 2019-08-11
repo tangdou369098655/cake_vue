@@ -80,7 +80,9 @@ export default {
         formdata.cake_name=item.index_title
         formdata.count=1
         formdata.price=item.index_price
-        this.axios.post('/cart/adds',formdata).then((data)=>{console.log(data)}).catch(err => alert(err.message))
+        this.axios.post('/cart/adds',formdata).then((data)=> {
+			this.$Message('添加成功')
+		}).catch(err => alert(err.message))
 		},
 		// 购物车点击事件,点击后出现隐藏框
 		tabCarClick(event) {

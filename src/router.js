@@ -1,19 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 import MainRouter from './views/MainRouter.vue'
-import Deatil from './views/Detail.vue'
-import List from './views/List.vue'
-import Cart from './views/Cart.vue'
-import Order from './views/Order.vue'
-import Portal from './views/Portal.vue'
-import PortalRouter from './views/PortalRouter.vue'
-import proMyadd from './views/protal-all/Pro-myadd'
-import proMydetails from './views/protal-all/Pro-mydetails'
-import proMyOrder from './views/protal-all/Pro-myorder'
-import proPersonal from './views/protal-all/Pro-personal'
-import proPwd from './views/protal-all/Pro-pwd'
-import Login from './views/Login.vue'
 
 Vue.use(Router)
 
@@ -30,48 +17,48 @@ export default new Router({
         },
         {
           path: 'home',
-          component:Home
+          component: () => import('./views/Home.vue')
         },
         {
           path:'detail',
-          component:Deatil
+          component:() => import('./views/Detail.vue')
         },
         {
           path:'list',
-          component:List
+          component:() => import('./views/List.vue')
         },
         {
           path:'cart',
-          component:Cart
+          component:() => import('./views/Cart.vue')
         },
         {
           path:'order',
-          component:Order
+          component:() => import('./views/Order.vue')
         },
         {
           path:'portal',
-          component:PortalRouter,
+          component:() => import('./views/PortalRouter.vue'),
           children: [
             { 
               path: '', 
-              component: proPersonal 
+              component: () => import('./views/protal-all/Pro-personal') 
             },
             {
               path: 'my-add',
-              component: proMyadd
+              component: () => import('./views/protal-all/Pro-myadd')
             },
             {
               path: 'my-details',
-              component: proMydetails
+              component: () => import('./views/protal-all/Pro-mydetails')
             },
             {
               path:'my-order/:state?',
               name: 'myOrder',
-              component:proMyOrder
+              component:() => import('./views/protal-all/Pro-myorder')
             },
             {
               path:'my-pwd',
-              component:proPwd
+              component:() => import('./views/protal-all/Pro-pwd')
             },
             
           ]
@@ -79,7 +66,7 @@ export default new Router({
         {
           path:'login',
           name: 'login',
-          component:Login
+          component:() => import('./views/Login.vue')
         },
         // {
         //   path:'about',
@@ -93,7 +80,7 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: () => import('./views/About.vue')
     }
   ]
 })

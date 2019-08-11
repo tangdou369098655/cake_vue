@@ -2,7 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-// import layui from 'layui-src'
+import Message from './message.common'
+Vue.use(Message)
 //5:引入axios.js文件
 import './axios'
 //6.引入vuex
