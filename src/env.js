@@ -1,8 +1,8 @@
 export default ({
   development: {
-    baseURL: 'http://localhost:3000'
+    baseURL: 'http://localhost:3000/api'
   },
   production: {
-    baseURL: 'https://lvwy.herokuapp.com/api'
+    baseURL: 'http://localhost:3000/api'
   }
 })[process.env.NODE_ENV]
